@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FINDG</title>
 
-
+    <link rel="stylesheet" href="normalizado.css"> <!--primero este para normalizar y no repetir de mas, luego el especifico-->
 </head>
 
 <!--dentro de cada seccion (header, footer, section) planteamos un div que contenga el todo, y un div por contenido especifico dentro del div de contenedor-->
@@ -14,11 +14,16 @@
 
 <body>
     <header class="header">
-        <img src="imagenes/icono.png" alt="icono">
-        <nav>
-            <a href="explore.html"> EXPLORAR </a>
-            <a href="favourite.html"> FAVORITOS </a>
-        </nav>
+        <div class="header-container">
+            <a href="index.html">
+                <img src="imagenes/icono.png" alt="icono" class="icon">
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="explore.html" class="nav-icon" > EXPLORAR </a>
+                <a href="favourite.html" class="nav-icon"> FAVORITOS </a>
+            </nav>
+        </div>
     </header>
 
     <main class="main-content">
