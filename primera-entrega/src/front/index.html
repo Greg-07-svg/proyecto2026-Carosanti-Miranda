@@ -1,11 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FINDG</title>
+
+
 </head>
+
+<!--dentro de cada seccion (header, footer, section) planteamos un div que contenga el todo, y un div por contenido especifico dentro del div de contenedor-->
+<!-- asi para poder facilitar el planteo del disenio en css-->
+
 <body>
-    
+    <header class="header">
+        <img src="imagenes/icono.png" alt="icono">
+        <nav>
+            <a href="explore.html"> EXPLORAR </a>
+            <a href="favourite.html"> FAVORITOS </a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+
+        <section class="hero-section" id="hero">
+            <div class="hero-overlay">
+                <div class="hero-container">
+                    <span class="game-featured">JUEGO DEL DIA</span>
+
+                    <h1 class="hero-title" id="hero-title">ACA VA EL NOMBRE DEL JUEGO DEL DIA (ONLOAD EVENT)</h1>
+
+                    <div class="hero-meta">
+                        <span class="game-rating">rating --</span>
+                        <span class="game-gender">genero --</span>
+                    </div>
+
+                    <span class="hero-description" id="hero-desc">
+                        cargando detalles de la api
+                    </span>
+
+                    <a href="#" class="btn-primary" id="btn-hero">Ver detalles</a> <!--el boton debe direccionar al juego del dia a traves de dinamica de js-->
+                </div>
+            </div>
+        </section>
+
+
+        <section id="section-trends">
+            <h2 class="section-title">Tendencias</h2>
+
+            <div class="games-container" id="trend-games-container">
+                <div class="card-skeleton">
+                    cargando carta
+                </div>
+            </div>
+        </section>
+
+        <section class="section-categories">
+            <h2 class="section-title">Categorías</h2>
+
+            <div class="categories-grid">
+                <a href="explore.html?category=action" class="category-card active">
+                    Acción
+                </a>
+                <a href="explore.html?category=indie" class="category-card">
+                    Aventura
+                </a>
+                <a href="explore.html?category=role-playing-games-rpg" class="category-card">
+                    RPG
+                </a>
+                <a href="explore.html?category=strategy" class="category-card">
+                    Estrategia
+                </a>
+                <a href="explore.html?category=sports" class="category-card">
+                    Deportes
+                </a>
+                <a href="explore.html?category=puzzle" class="category-card">
+                    Puzzle
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <span>datos proporcionados por la API de RAWG (free tier) </span>
+            <span><small>©2026 Lucca Carosanti Gregorio Miranda </small></span>
+        </div>
+    </footer>
+
 </body>
+
 </html>
