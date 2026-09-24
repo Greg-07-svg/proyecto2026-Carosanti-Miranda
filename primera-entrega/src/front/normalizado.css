@@ -7,8 +7,7 @@
     --bg-surface: #131b26;       
     --bg-surface-hover: #1c2738; 
     
-    /* Acentos y Badges */
-    --distintivo-celeste: #00e5ff;      /* Color distintivo para botones y focos */
+    /* Acentos y Badges */    /* Color distintivo para botones y focos */
     --distintivo-celeste: #00b8cc;
     --distintivo-naranja: #f59e0b;     /* Color distintivo para calificaciones/rating */
     
@@ -95,6 +94,19 @@ img{
     color: var(--distintivo-celeste)
 }
 
+/* estructura base del main */
+
+.main-content {
+    flex: 1;
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
 /*footer*/ 
 
 .footer {
@@ -117,4 +129,38 @@ img{
 }
 
 /*DEFINIR EL MEDIA QUERY PARA ESTE ARCHIVO !!!!*/
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1.25rem 1rem;
+        gap: 2rem;
+    }
+    
+    .header nav {
+        gap: 1.25rem;
+    }
+
+    .header nav a {
+        font-size: 0.8rem;
+    }
+}
+
+/* Mobile Dispositivos Pequeños (Hasta 480px) */
+@media (max-width: 480px) {
+    .header nav {
+        gap: 0.85rem;
+    }
+
+    .header img {
+        height: 26px;
+    }
+
+    .footer {
+        padding: 1.5rem 1rem;
+    }
+
+    .footer-container {
+        font-size: 0.75rem;
+    }
+}
 
