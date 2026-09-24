@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FINDG | Juego</title>
 
-    <link rel="stylesheet" href="normalizado.css">
+    <link rel="stylesheet" href="normalizado.css"> <!--primero el normalizado, luego el especifico-->
+    <link rel="stylesheet" href="game.css">
 </head>
 <body>
     <!--AGREGAR OM QUITAR DEPENDIENDO DE LA PAGINA COSAS AL HEADER Y FOOTER (USAR MISMAS CLASES !!!)-->
@@ -22,8 +23,73 @@
         </div>
     </header>
 
+    <main class="main-content">
 
+        <!-- BANNER: imagen de fondo (horizontal) con el nombre encima. La imagen del fondo va en --banner -->
+        <section class="banner" id="banner" style="--banner: url('imagenes/banner.jpg')">
+            <div class="container banner-container">
+                <!-- PORTADA: imagen independiente del banner (vertical). Va en el src de esta img -->
+                <img class="banner-cover" id="game-cover" src="imagenes/portada.jpg" alt="Portada del juego">
 
+                <div class="banner-info">
+                    <a href="explore.html" class="back-link">← Volver a explorar</a>
+                    <h1 class="game-title" id="game-title">Cargando juego…</h1>
+                    <p class="game-genres" id="game-genres"></p>
+                </div>
+
+                <div class="banner-actions">
+                    <button class="btn-icon" id="btn-fav" type="button" aria-pressed="false" aria-label="Agregar a favoritos">♡</button>
+                    <a href="#" class="btn-primary" id="btn-store" target="_blank" rel="noopener" hidden>Ir a la tienda</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container detail-grid">
+
+            <!-- GALERIA: visor grande + tira de miniaturas -->
+            <section class="gallery">
+                <div class="viewer" id="viewer"></div>
+
+                <div class="thumbs-wrap">
+                    <div class="thumbs" id="thumbs"></div>
+                    <button class="thumbs-next" id="thumbs-next" type="button" aria-label="Ver más miniaturas">›</button>
+                </div>
+
+                <p class="game-desc" id="game-desc"></p>
+            </section>
+
+            <!-- PANELES LATERALES -->
+            <aside class="side">
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2 class="panel-title">Detalles</h2>
+                        <span class="badge" id="badge-rating">★ --</span>
+                    </div>
+                    <div id="details-list"></div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2 class="panel-title">Reseñas</h2>
+                        <span class="badge badge-meta" id="badge-meta" hidden></span>
+                    </div>
+                    <div id="reviews-list"></div>
+                </div>
+            </aside>
+        </div>
+
+        <section class="container similar">
+            <div class="similar-head">
+                <h2 class="section-title">Juegos similares</h2>
+                <div class="similar-nav">
+                    <button class="btn-icon" id="sim-prev" type="button" aria-label="Anterior">‹</button>
+                    <button class="btn-icon" id="sim-next" type="button" aria-label="Siguiente">›</button>
+                </div>
+            </div>
+            <div class="similar-track" id="similar-track"></div>
+        </section>
+
+    </main>
 
     <footer class="footer">
         <div class="footer-container">
@@ -31,6 +97,7 @@
             <span><small>©2026 Lucca Carosanti Gregorio Miranda </small></span>
         </div>
     </footer>
-    
+
+    <script src="game.js"></script>
 </body>
 </html>
