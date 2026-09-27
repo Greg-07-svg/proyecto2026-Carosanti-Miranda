@@ -154,7 +154,7 @@
     color: var(--distintivo-celeste);
 }
 
-/* Smartphones / Pantallas Móviles (Ancho máximo 768px - según wireframe móvil) */
+/* MEDIAS QUERYES PARA CELUS  */
 @media (max-width: 768px) {
     /* Ajustes del Hero Banner */
     .hero-section {
@@ -175,12 +175,12 @@
     }
 
     .btn-primary {
-        width: 100%; /* Botón de ancho completo en móvil */
+        width: 100%; /* Botón de ancho completo en celu */
         text-align: center;
         padding: 0.75rem 1rem;
     }
 
-    /* Grilla de Categorías Pasa a 1 Sola Columna Vertical (idéntico a la vista mobile) */
+    /* Grilla de Categorías Pasa a 1 Sola Columna Vertical para celu */
     .categories-grid {
         grid-template-columns: 1fr;
         gap: 0.75rem;

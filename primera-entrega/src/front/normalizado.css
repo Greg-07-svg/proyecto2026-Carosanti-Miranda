@@ -68,11 +68,20 @@ img{
     align-items: center;
 }
 
+.icon-container{
+    display: flex;
+}
+
 .icon{
     height: 50px;
     width: auto;
     margin-left: 2vw;
     border-radius: var(--radius-lg);
+}
+
+.header-page-title{
+    margin-left: 1vw;  
+    font-size: 1.82rem;
 }
 
 .nav-menu{

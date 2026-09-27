@@ -18,11 +18,11 @@
 - [X] Debe ser realizado con el template
 
 ## Wireframe/Mockup
-- [ ] Dibujado con algún programa como: Figma, AdobeXD, Canvas, Draw.io en Drive, Pencil Project, Mockups, NinjaMock, o similares.
-- [ ] Diseño de Mensajes de error para el usuario
-- [ ] Versión Desktop y Mobile
-- [ ] Guardado en formato PNG, JPG ó PDF
-- [ ] Dentro de una carpeta llamada "Wireframe" ó "Mockup"
+- [X] Dibujado con algún programa como: Figma, AdobeXD, Canvas, Draw.io en Drive, Pencil Project, Mockups, NinjaMock, o similares.
+- [X] Diseño de Mensajes de error para el usuario
+- [X] Versión Desktop y Mobile
+- [X] Guardado en formato PNG, JPG ó PDF
+- [X] Dentro de una carpeta llamada "Wireframe" ó "Mockup"
 
 
 ## Repositorio
@@ -37,26 +37,26 @@
 - [ ] El historial debe ser consistente y tener al menos 10 commits separados en al menos 4 días
 
 ## Proyecto general
-- [ ] NO está permitido descargar un TEMPLATE (diseño 100% desde cero)
-- [ ] La página principal debe llamarse index
-- [ ] La estructura del proyecto debe ser adecuada (crear una carpeta para las imágenes, otra para los sketch/mockups).
-- [ ] Identar correctamente el código
+- [X] NO está permitido descargar un TEMPLATE (diseño 100% desde cero)
+- [X] La página principal debe llamarse index
+- [X] La estructura del proyecto debe ser adecuada (crear una carpeta para las imágenes, otra para los sketch/mockups).
+- [X] Identar correctamente el código
 - [ ] No debe haber errores presentes (en Webstorm *Code* > *Inspect Code* para verificar que no haya errores)
-- [ ] Se debe emplear favicon
-- [ ] Emplear alguna fuente de google fonts o subir al proyecto alguna fuente externa (aunque sea para un título)
-- [ ] Debe haber navegación entre todas las páginas
-- [ ] No debe haber errores de ortografía en el contenido visual
+- [X] Se debe emplear favicon
+- [X] Emplear alguna fuente de google fonts o subir al proyecto alguna fuente externa (aunque sea para un título)
+- [X] Debe haber navegación entre todas las páginas
+- [X] No debe haber errores de ortografía en el contenido visual
 - [ ] "Lorem ipsum" es sólo válido para los prototipos, NO para la página
-- [ ] No debe existir código comentado
+- [X] No debe existir código comentado
 
 ## Sobre el HTML
-- [ ] Todas las etiquetas deben estar en minúscula
-- [ ] Poner comillas a todos los atributos
-- [ ] **Title** debe contener el título de la página
+- [X] Todas las etiquetas deben estar en minúscula
+- [X] Poner comillas a todos los atributos
+- [X] **Title** debe contener el título de la página
 - [ ] En el ```<head></head>``` incluir las etiquetas ```<meta>``` detallando: autor, descripción y palabras clave
-- [ ] Emplear al menos 3 etiquetas semánticas diferentes
-- [ ] Emplear ```<header></header>```. En el contenido de la cabecera debe haber un título ```<h1></h1>```, puede tener color de fondo, algún logotipo, etc.
-- [ ] La estructura de la página debe estar definida con ```<div></div>```
+- [X] Emplear al menos 3 etiquetas semánticas diferentes
+- [X] Emplear ```<header></header>```. En el contenido de la cabecera debe haber un título ```<h1></h1>```, puede tener color de fondo, algún logotipo, etc.
+- [X] La estructura de la página debe estar definida con ```<div></div>```
 - [ ] Debe contener al menos 3 elementos de tipo ```<input>``` o ```<select>``` o ```<button>``` que le permitan al usuario ingresar valores para poder realizar un cálculo de un ejercicio o seleccionar opciones o llamar a una función.
 - [ ] Emplear el atributo **placeholder** (mínimamente en 1 input)
 - [ ] Emplear el atributo **size** para que el tamaño de los inputs sea prolijo
