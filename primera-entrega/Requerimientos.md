@@ -61,11 +61,11 @@
 - [ ] Emplear el atributo **placeholder** (mínimamente en 1 input)
 - [ ] Emplear el atributo **size** para que el tamaño de los inputs sea prolijo
 - [ ] Emplear el atributo **maxlength** para que el usurario no pueda ingresar valores "muy grandes"
-- [ ] No espaciar con excesivos ```<br>```. Utilizar márgenes, paddings, etc.
-- [ ] La anidación de etiquetas HTML debe ser correcta.
-- [ ] No utilizar etiquetas deprecadas.
-- [ ] Todas las etiquetas que correspondan deben estar correctamente cerradas
-- [ ] Los ids de los elementos deben ser unívocos
+- [X] No espaciar con excesivos ```<br>```. Utilizar márgenes, paddings, etc.
+- [X] La anidación de etiquetas HTML debe ser correcta.
+- [X] No utilizar etiquetas deprecadas.
+- [X] Todas las etiquetas que correspondan deben estar correctamente cerradas
+- [X] Los ids de los elementos deben ser unívocos
 
 ## Imágenes
 - [ ] Debe contener por lo menos una etiqueta ```<img>``` en la página.
@@ -75,12 +75,12 @@
 - [ ] Las imágenes deben poseer un nombre representativo 
 
 ## Sobre el CSS
-- [ ] El estilo de los elementos debe establecerse en un archivo CSS (prohibido poner el atributo style a los elementos o emplear estilos incrustados).
-- [ ] El CSS debe contar mínimo con un tipo de cada forma (por Tag, por ID y por clase).
-- [ ] Se debe emplear pseudoclase
-- [ ] No emplear ```!important```
-- [ ] El diseño de la página debe ser consistente
-- [ ] Debe existir un único archivo CSS (se debe evitar código duplicado. Se debe aplicar re-utilización de código/estilos)
+- [X] El estilo de los elementos debe establecerse en un archivo CSS (prohibido poner el atributo style a los elementos o emplear estilos incrustados).
+- [X] El CSS debe contar mínimo con un tipo de cada forma (por Tag, por ID y por clase).
+- [X] Se debe emplear pseudoclase
+- [X] No emplear ```!important```
+- [X] El diseño de la página debe ser consistente
+- [X] Debe existir un único archivo CSS (se debe evitar código duplicado. Se debe aplicar re-utilización de código/estilos) UNICO DE NORALIZACION 
 
 #### Sobre Accesibilidad
 - [ ] Toda imagen debe tener su atributo alt
