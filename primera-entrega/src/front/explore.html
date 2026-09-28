@@ -6,6 +6,7 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="normalizado.css">
+    <link rel="stylesheet" href="explore.css">
 </head>
 <body>
     <!--AGREGAR OM QUITAR DEPENDIENDO DE LA PAGINA COSAS AL HEADER Y FOOTER (USAR MISMAS CLASES !!!)-->
@@ -22,10 +23,78 @@
             </nav>
         </div>
     </header>
+
+    <main class="main-content explore-layout">
+
+        
+        <aside class="filters-sidebar">
+            <h2 class="sidebar-title">Filtros</h2>
+
+            <form id="filters-form" >
+                
+                <fieldset class="filter-group">
+                    <label for="search-input">BUSCAR</label>
+                    <input type="text" id="search-input" placeholder="Nombre del juego...">
+                </fieldset>
+
+                <fieldset class="filter-group">
+                    <label for="category-select">CATEGORÍA</label>
+                    <select id="category-select">
+                        <option value="">Todos los géneros</option>
+                        <option value="action">Acción</option>
+                        <option value="indie">Aventura</option>
+                        <option value="role-playing-games-rpg">RPG</option>
+                        <option value="strategy">Estrategia</option>
+                        <option value="sports">Deportes</option>
+                        <option value="shooter">Shooter</option>
+                        <option value="racing">Carreras</option>
+                        <option value="puzzle">Puzzle</option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="filter-group">
+                    <div class="filter-label-row">
+                        <label for="rating-range">RATING MÍNIMO</label>
+                        <span id="rating-value" class="rating-badge-val">0.0+</span>
+                    </div>
+                    <input type="range" id="rating-range" min="0" max="5" step="0.5" value="0">
+                </fieldset>
+
+                <fieldset class="filter-group">
+                    <label for="year-input">AÑO DE LANZAMIENTO</label>
+                    <input type="number" id="year-input" placeholder="Ej. 2023, 2024" min="1980" max="2026">
+                </fieldset>
+
+                <fieldset class="filter-actions">
+                    <button type="submit" class="btn">Aplicar Filtros</button>
+                    <button type="button" id="btn-reset" class="btn">Reiniciar</button>
+                </fieldset>
+
+            </form>
+        </aside>
+
+        <section class="results-section">
+            
+            <div class="results-header">
+                <h1 class="page-title">Explorar Juegos</h1>
+                <span id="results-count" class="results-count">Cargando juegos...</span>
+            </div>
+
+            <div id="explore-grid">
+                <!-- Se inyecta dinámicamente con JS (explore.js) -->
+                <div class="card-skeleton">Cargando catálogo...</div>
+            </div>
+
+            <div class="pagination-container" >
+                <button id="btn-prev" class="btn" disabled>&laquo; Anterior</button>
+                <span id="page-indicator">Página 1</span>
+                <button id="btn-next" class="btn">Siguiente &raquo;</button>
+            </div>
+
+        </section>
+
+    </main>
     
-
-
-
     <footer class="footer">
         <div class="footer-container">
             <span>datos proporcionados por la API de RAWG (free tier) </span>
