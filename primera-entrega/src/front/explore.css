@@ -191,14 +191,6 @@
 
 
 @media (max-width: 860px) {
-    .header-container{
-        gap: 0.5rem; 
-    }
-    
-    .header-page-title{
-        font-size: 1.02rem;
-    }
-
     .explore-layout {
         grid-template-columns: 1fr; /* Pasa a 1 columna vertical */
     }

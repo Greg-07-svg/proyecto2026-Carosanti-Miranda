@@ -4,10 +4,14 @@
     min-height: 440px;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    background-size: cover;
-    background-position: center;
     border: 1px solid var(--border-color);
     display: flex;
+}
+
+#hero{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .hero-overlay {

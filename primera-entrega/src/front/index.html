@@ -6,24 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FINDG</title>
 
-    <link rel="stylesheet" href="normalizado.css"> <!--primero este para normalizar y no repetir de mas, luego el especifico-->
+    <link rel="stylesheet" href="normalizado.css">
+    <!--primero este para normalizar y no repetir de mas, luego el especifico-->
 
     <link rel="stylesheet" href="index.css">
+
+    <script src="principal.js"></script>
 </head>
 
 <!--dentro de cada seccion (header, footer, section) planteamos un div que contenga el todo, y un div por contenido especifico dentro del div de contenedor-->
 <!-- asi para poder facilitar el planteo del disenio en css-->
 
-<body>
+<body onload="juegoPrincipal()">
     <header class="header">
         <div class="header-container">
             <a href="index.html" class="icon-container">
                 <img src="imagenes/favicon.ico" alt="icono" class="icon">
                 <h1 class="header-page-title">FINDG</h1>
             </a>
-            
+
             <nav class="nav-menu">
-                <a href="explore.html" class="nav-icon" > EXPLORAR </a>
+                <a href="explore.html" class="nav-icon"> EXPLORAR </a>
                 <a href="favourite.html" class="nav-icon"> FAVORITOS </a>
             </nav>
         </div>
@@ -33,21 +36,8 @@
 
         <section class="hero-section" id="hero">
             <div class="hero-overlay">
-                <div class="hero-container">
-                    <span class="game-featured">JUEGO DEL DIA</span>
-
-                    <h1 class="hero-title" id="hero-title">ACA VA EL NOMBRE DEL JUEGO DEL DIA (ONLOAD EVENT)</h1>
-
-                    <div class="hero-meta">
-                        <span class="game-rating">rating --</span>
-                        <span class="game-gender">genero --</span>
-                    </div>
-
-                    <span class="hero-description" id="hero-desc">
-                        cargando detalles de la api
-                    </span>
-
-                    <a href="#" class="btn-primary" id="btn-hero">Ver detalles</a> <!--el boton debe direccionar al juego del dia a traves de dinamica de js-->
+                <div class="hero-container" id="hero-container">
+                    <!--se realiza la carga de los mockups a traves del js, con el event listener sobre el body. -->
                 </div>
             </div>
         </section>
