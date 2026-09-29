@@ -10,10 +10,10 @@ const MOCK_GAMES = [
     released: "2024",
     developer: "FromSoftware",
     store_url: "https://store.steampowered.com/app/1245620/ELDEN_RING/",
-    // Portada / Icono principal del juego
-    cover_image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=400&auto=format&fit=crop",
+    
+    cover_image: "primera-entrega\src\front\imagenes\elden-ring-logo.webp",
     // Banner panorámico de fondo
-    background_image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop",
+    background_image: "primera-entrega\src\front\imagenes\elden-ring-shadow-of-the-erdtree-backimage.webp",
     description: "Una expansión épica que lleva a los jugadores a explorar la Tierra de las Sombras, llena de nuevos jefes, armas y secretos oscuros por descubrir en un vasto mundo abierto.",
     genres: [
       { name: "RPG" },
@@ -25,9 +25,9 @@ const MOCK_GAMES = [
       { name: "Xbox Series X" }
     ],
     media: [
-      { type: "image", url: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1000&auto=format&fit=crop", title: "Artwork Principal" },
-      { type: "image", url: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1000&auto=format&fit=crop", title: "Combate de Jefe" },
-      { type: "image", url: "https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?q=80&w=1000&auto=format&fit=crop", title: "Exploración" }
+      { type: "image", url: "primera-entrega\src\front\imagenes\paintings-elden-ring-shadow-of-the-erdtree.webp", title: "Artwork Principal" },
+      { type: "image", url: "primera-entrega\src\front\imagenes\elden-ring-boss.webp", title: "Combate de Jefe" },
+      { type: "image", url: "primera-entrega\src\front\imagenes\elden-ring-shadow-of-the-erdtree-exploracion.webp", title: "Exploración" }
     ],
     reviews: [
       { user: "Alexander_V", rating: 5, comment: "Una obra maestra indiscutible. La dificultad es alta pero sumamente gratificante." },
@@ -41,8 +41,8 @@ const MOCK_GAMES = [
     released: "2023",
     developer: "CD Projekt Red",
     store_url: "https://store.steampowered.com/app/1091500/Cyberpunk_2077/",
-    cover_image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=400&auto=format&fit=crop",
-    background_image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop",
+    cover_image: "primera-entrega\src\front\imagenes\cyberpunk-2077-logo.webp",
+    background_image: "primera-entrega\src\front\imagenes\cyberpunk-2077-background.webp",
     description: "Una aventura de espionaje y suspenso donde encarnas al mercenario V en una misión de alto riesgo dentro del peligroso distrito de Dogtown en Night City.",
     genres: [
       { name: "Acción" },
@@ -53,7 +53,7 @@ const MOCK_GAMES = [
       { name: "PlayStation 5" }
     ],
     media: [
-      { type: "image", url: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1000&auto=format&fit=crop", title: "Dogtown Night City" }
+      { type: "image", url: "primera-entrega\src\front\imagenes\Cyberpunk-2077-Phantom-Liberty-ciudad.webp", title: "Dogtown Night City" }
     ],
     reviews: [
       { user: "NeonKnight", rating: 5, comment: "Increíble historia y la redención perfecta para Cyberpunk." }
@@ -66,8 +66,8 @@ const MOCK_GAMES = [
     released: "2023",
     developer: "Larian Studios",
     store_url: "https://store.steampowered.com/app/1086940/Baldurs_Gate_3/",
-    cover_image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=400&auto=format&fit=crop",
-    background_image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=1200&auto=format&fit=crop",
+    cover_image: "primera-entrega\src\front\imagenes\baldurs-gate-3-logo.webp",
+    background_image: "primera-entrega\src\front\imagenes\Baldurs-gate-3-background.webp",
     description: "Un juego de rol de próxima generación ambientado en el mundo de Dungeons & Dragons, donde tus elecciones dan forma a una historia de amistad, traición y supervivencia.",
     genres: [
       { name: "RPG" },
@@ -79,7 +79,7 @@ const MOCK_GAMES = [
       { name: "Xbox Series X" }
     ],
     media: [
-      { type: "image", url: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=1000&auto=format&fit=crop", title: "Campamento de Héroes" }
+      { type: "image", url: "primera-entrega\src\front\imagenes\campamento-baldurs-gate-3.webp", title: "Campamento de Héroes" }
     ],
     reviews: [
       { user: "TavernMaster", rating: 5, comment: "Libertad absoluta para resolver los combates y misiones." }
@@ -87,37 +87,13 @@ const MOCK_GAMES = [
   },
   {
     id: 104,
-    name: "EA SPORTS FC 24",
-    rating: 3.8,
-    released: "2023",
-    developer: "EA Vancouver",
-    store_url: "https://store.steampowered.com/app/2195250/EA_SPORTS_FC_24/",
-    cover_image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=400&auto=format&fit=crop",
-    background_image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1200&auto=format&fit=crop",
-    description: "La experiencia futbolística más auténtica hasta la fecha con las mayores competiciones, clubes y estrellas del mundo utilizando HyperMotionV.",
-    genres: [
-      { name: "Deportes"}
-    ],
-    platforms: [
-      { name: "PC" },
-      { name: "PlayStation 5" }
-    ],
-    media: [
-      { type: "image", url: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1000&auto=format&fit=crop", title: "Estadio Lleno" }
-    ],
-    reviews: [
-      { user: "Futbolero22", rating: 3.5, comment: "Buenas animaciones pero la jugabilidad sigue siendo muy similar." }
-    ]
-  },
-  {
-    id: 105,
     name: "Hollow Knight",
     rating: 4.7,
     released: "2017",
     developer: "Team Cherry",
     store_url: "https://store.steampowered.com/app/367520/Hollow_Knight/",
-    cover_image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=400&auto=format&fit=crop",
-    background_image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop",
+    cover_image: "primera-entrega\src\front\imagenes\holow-knight-cover.webp",
+    background_image: "primera-entrega\src\front\imagenes\hollow-knight-background.webp",
     description: "Desciende al mundo de Hallownest, un reino en ruinas lleno de insectos y héroes. Explora cavernas retorcidas, combate criaturas corrompidas y forja tu propio camino.",
     genres: [
       { name: "Aventura"},
@@ -128,21 +104,21 @@ const MOCK_GAMES = [
       { name: "Nintendo Switch"}
     ],
     media: [
-      { type: "image", url: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop", title: "Boca Sucia" }
+      { type: "image", url: "primera-entrega\src\front\imagenes\hollow-knight-dirtmouth.webp", title: "Boca Sucia" }
     ],
     reviews: [
       { user: "BugHunter", rating: 5, comment: "Arte visual y música inigualables." }
     ]
   },
   {
-    id: 106,
+    id: 105,
     name: "Portal 2",
     rating: 4.9,
     released: "2011",
     developer: "Valve",
     store_url: "https://store.steampowered.com/app/620/Portal_2/",
-    cover_image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400&auto=format&fit=crop",
-    background_image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
+    cover_image: "primera-entrega\src\front\imagenes\portal2-cover.webp",
+    background_image: "primera-entrega\src\front\imagenes\portal2-background.webp",
     description: "Una hilarante y brillante aventura de acertijos en primera persona donde usas un dispositivo de portales para resolver intrincadas cámaras de pruebas.",
     genres: [
       { name: "Puzzle"}
@@ -151,7 +127,7 @@ const MOCK_GAMES = [
       { name: "PC" }
     ],
     media: [
-      { type: "image", url: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop", title: "Cámara de Pruebas" }
+      { type: "image", url: "primera-entrega\src\front\imagenes\portal2-camara-de-pruebas.webp", title: "Cámara de Pruebas" }
     ],
     reviews: [
       { user: "ApertureScience", rating: 5, comment: "El mejor juego de acertijos de la historia." }
