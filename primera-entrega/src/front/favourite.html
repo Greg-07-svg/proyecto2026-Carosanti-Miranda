@@ -1,29 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FINDG | Favoritos</title>
 
-    <link rel="stylesheet" href="normalizado.css">
+    <link rel="stylesheet" href="normalizado.css"> <!--primero el normalizado, luego el especifico-->
+    <link rel="stylesheet" href="favourite.css">
 </head>
+
 <body>
-    <!--AGREGAR OM QUITAR DEPENDIENDO DE LA PAGINA COSAS AL HEADER Y FOOTER (USAR MISMAS CLASES !!!)-->
     <header class="header">
         <div class="header-container">
             <a href="index.html" class="icon-container">
                 <img src="imagenes/favicon.ico" alt="icono" class="icon">
                 <h1 class="header-page-title">FINDG</h1>
             </a>
-            
+
             <nav class="nav-menu">
                 <a href="explore.html" class="nav-icon"> EXPLORAR </a>
-                <a href="favourite.html" class="nav-icon"> FAVORITOS </a>
+                <a href="favourite.html" class="nav-icon active"> FAVORITOS </a>
             </nav>
         </div>
     </header>
-    
 
+    <main class="main-content">
+        <div class="container">
+
+            <p class="fav-breadcrumb">Mi cuenta / Biblioteca de favoritos</p>
+
+            <div class="fav-head">
+                <div>
+                    <h1 class="fav-title">Mis favoritos</h1>
+                    <p class="fav-subtitle">Los juegos que guardaste, con su rating y acceso directo a los detalles.</p>
+                </div>
+                <span class="fav-count" id="fav-count">0 juegos guardados</span>
+            </div>
+
+            <div class="fav-layout">
+
+                <!-- LISTA: las tarjetas las genera favourite.js -->
+                <section class="fav-list" id="fav-list">
+                    <p class="fav-msg">Cargando favoritos…</p>
+                </section>
+
+                <!-- RESUMEN LATERAL -->
+                <aside class="panel">
+                    <h2 class="panel-title">Resumen</h2>
+                    <div id="summary-list"></div>
+                    <p class="fav-note">Los favoritos se guardan en este navegador. Para agregar uno, tocá el ♡ en la página del juego.</p>
+                </aside>
+
+            </div>
+        </div>
+    </main>
 
     <footer class="footer">
         <div class="footer-container">
@@ -31,5 +62,8 @@
             <span><small>©2026 Lucca Carosanti Gregorio Miranda </small></span>
         </div>
     </footer>
+
+    <script src="favourite.js"></script>
 </body>
+
 </html>
