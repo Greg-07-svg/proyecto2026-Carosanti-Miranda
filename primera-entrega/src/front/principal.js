@@ -92,7 +92,7 @@ const juegos = [
     released: "2017",
     developer: "Team Cherry",
     store_url: "https://store.steampowered.com/app/367520/Hollow_Knight/",
-    cover_image: "=imagenes/holow-knight-cover.webp",
+    cover_image: "imagenes/holow-knight-cover.webp",
     background_image: "imagenes/hollow-knight-background.webp",
     description: "Desciende al mundo de Hallownest, un reino en ruinas lleno de insectos y héroes. Explora cavernas retorcidas, combate criaturas corrompidas y forja tu propio camino.",
     genres: [
@@ -136,10 +136,10 @@ const juegos = [
 ];
 
 /**
- * el siguiente metodo permite realizar la carga y cambio de juego cada 24 hrs 
+ * funcion q permite realizar la carga y cambio de juego cada 24 hrs 
  * @method juegoPrincipal()
  */ 
-function juegoPrincipal() {
+juegoPrincipal = () => {
   
   const hoy = new Date();
   const inicioDeAno = new Date(hoy.getFullYear(), 0, 0);
@@ -158,7 +158,7 @@ function juegoPrincipal() {
     <span class="game-featured">JUEGO DEL DIA</span>
     <h1 class="hero-title">${juegoDelDia.name}</h1>
     <div class="hero-meta">
-      <span class="game-rating">★ ${juegoDelDia.rating}</span>
+      <span class="game-rating"> ${juegoDelDia.rating}</span>
       <span class="game-gender">${juegoDelDia.genres?.[0]?.name || 'Videojuego'}</span>
     </div>
     <span class="hero-description">${juegoDelDia.description}</span>
@@ -168,5 +168,31 @@ function juegoPrincipal() {
   document.getElementById("hero-container").innerHTML = contenidoHero;
 
   // fondo
-  heroSection = document.getElementById("hero").style.backgroundImage = `linear-gradient(180deg, rgba(11, 15, 23, 0.4) 0%, rgba(11, 15, 23, 0.95) 100%), url('${juegoDelDia.background_image}')`;
+  heroSection = document.getElementById("hero").style.backgroundImage = `linear-gradient(180deg, rgba(11, 15, 23, 0.5) 0%, rgba(11, 15, 23, 0.95) 100%), url('${juegoDelDia.background_image}')`;
+}
+
+/**
+ * funcion que a partir de los mayores 
+ * @method cargarTendencias 
+ */
+cargarTendencias = () => {
+  let tendencias = ""; 
+
+  juegos.forEach((juego) => {
+    tendencias += `<div class="card-skeleton" >
+                      <img alt = "fondo-artwork" class = "skeleton-img" src = "${juego.background_image}">
+                      <span class = "skeleton-title"> ${juego.name}</span> 
+                      <span class = "skeleton-rating"> ${juego.rating}</span>
+                   </div>`
+  });
+
+  document.getElementById('trend-games-container').innerHTML = tendencias; 
+}
+
+/**
+ * funcion que dirige a "explorar" con el filtro de genero aplicado segun el clickeado (usando el value)
+ * @method dirigirExplorarFiltro
+ */ 
+dirigirExplorarFiltro = () =>{
+  //PREGUNTAR !!!
 }
