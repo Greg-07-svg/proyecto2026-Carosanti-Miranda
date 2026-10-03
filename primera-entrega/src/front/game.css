@@ -117,11 +117,20 @@
 
 .thumbs {
     display: flex;
-    gap: 0.6rem;
+    gap: 10px;
     overflow-x: auto;
-    scroll-snap-type: x proximity;
-    scrollbar-width: none;
+    scroll-behavior: smooth;
 }
+
+.thumbs img {
+    width: 140px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
 .thumbs::-webkit-scrollbar { display: none; }
 
 .thumb {
@@ -141,9 +150,9 @@
 .thumb.active { opacity: 1; border-color: var(--text-primary); }
 .thumb.video { background-color: #000; font-size: 1.25rem; }
 
+.thumbs-prev,
 .thumbs-next {
     position: absolute;
-    right: 0;
     top: 50%;
     transform: translateY(-50%);
     width: 32px;
@@ -155,6 +164,11 @@
     font-size: 1.25rem;
     cursor: pointer;
 }
+
+.thumbs-prev { left: 0; }
+.thumbs-next { right: 0; }
+
+.thumbs-wrap { position: relative; margin-top: 0.75rem; }
 
 .game-desc {
     margin-top: 1.25rem;

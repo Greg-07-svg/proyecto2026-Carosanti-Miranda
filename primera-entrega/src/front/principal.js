@@ -53,7 +53,9 @@ const juegos = [
       { name: "PlayStation 5" }
     ],
     media: [
-      { type: "image", url: "imagenes/Cyberpunk-2077-Phantom-Liberty-ciudad.webp", title: "Dogtown Night City" }
+      { type: "image", url: "imagenes/Cyberpunk-2077-Phantom-Liberty-ciudad.webp", title: "Dogtown Night City" },
+      { type: "image", url: "imagenes/cyberpunk-1.webp", title: "parte_ciudad_1_día" },
+      { type: "image", url: "imagenes/cyberpunk-2.webp", title: "parte_ciudad_2_día" }
     ],
     reviews: [
       { user: "NeonKnight", rating: 5, comment: "Increíble historia y la redención perfecta para Cyberpunk." }
@@ -79,7 +81,9 @@ const juegos = [
       { name: "Xbox Series X" }
     ],
     media: [
-      { type: "image", url: "imagenes/campamento-baldurs-gate-3.webp", title: "Campamento de Héroes" }
+      { type: "image", url: "imagenes/campamento-baldurs-gate-3.webp", title: "Campamento de Héroes" },
+      { type: "image", url: "imagenes/baldur-1.jpg", title: "personaje_demonio" },
+      { type: "image", url: "imagenes/baldur-2.jpg", title: "editor_personaje" }
     ],
     reviews: [
       { user: "TavernMaster", rating: 5, comment: "Libertad absoluta para resolver los combates y misiones." }
@@ -104,7 +108,14 @@ const juegos = [
       { name: "Nintendo Switch"}
     ],
     media: [
-      { type: "image", url: "imagenes/hollow-knight-dirtmouth.webp", title: "Boca Sucia" }
+      { type: "image", url: "imagenes/hollow-knight-dirtmouth.webp", title: "Boca Sucia" },
+      { type: "image", url: "imagenes/hollow-1.jpg", title: "Grimm Battle" },
+      { type: "image", url: "imagenes/hollow-2.jpg", title: "Canales_Reales" },
+      { type: "image", url: "imagenes/hollow-3.jpg", title: "Sendero_Verde" },
+      { type: "image", url: "imagenes/hollow-4.jpg", title: "False_Knight_Boss" },
+      { type: "image", url: "imagenes/hollow-5.jpg", title: "Inventario" },
+      { type: "image", url: "imagenes/hollow-6.jpg", title: "La_Colmena" }
+
     ],
     reviews: [
       { user: "BugHunter", rating: 5, comment: "Arte visual y música inigualables." }
@@ -127,7 +138,9 @@ const juegos = [
       { name: "PC" }
     ],
     media: [
-      { type: "image", url: "imagenes/portal2-camara-de-pruebas.webp", title: "Cámara de Pruebas" }
+      { type: "image", url: "imagenes/portal2-camara-de-pruebas.webp", title: "Cámara de Pruebas" },
+      { type: "image", url: "imagenes/portal_2-1.jpg", title: "Exterior" },
+      { type: "image", url: "imagenes/portal_2-2.jpg", title: "pasillo" }
     ],
     reviews: [
       { user: "ApertureScience", rating: 5, comment: "El mejor juego de acertijos de la historia." }
@@ -179,14 +192,23 @@ cargarTendencias = () => {
   let tendencias = ""; 
 
   juegos.forEach((juego) => {
-    tendencias += `<div class="card-skeleton" >
+    tendencias += `<div class="card-skeleton" onclick="irAJuego(${juego.id})">
                       <img alt = "fondo-artwork" class = "skeleton-img" src = "${juego.background_image}">
                       <span class = "skeleton-title"> ${juego.name}</span> 
-                      <span class = "skeleton-rating"> ${juego.rating}</span>
+                      <span class = "skeleton-rating"> ${juego.rating}</span> 
                    </div>`
   });
 
   document.getElementById('trend-games-container').innerHTML = tendencias; 
+}
+
+/**
+ * Lleva a game.html con el juego clickeado (se pasa el id por la URL)
+ * @method irAJuego
+ * @param {number} id - id del juego dentro del array `juegos`
+ */
+irAJuego = (id) => {
+  window.location.href = `game.html?id=${id}`;
 }
 
 /**
@@ -195,4 +217,112 @@ cargarTendencias = () => {
  */ 
 dirigirExplorarFiltro = () =>{
   //PREGUNTAR !!!
+}
+
+/**
+ * Cambia la imagen grande de la galeria al clickear una miniatura
+ * @method cambiarVisor
+ */
+cambiarVisor = (url, titulo) => {
+  document.getElementById("viewer").innerHTML = `<img src="${url}" alt="${titulo}">`;
+}
+
+/**
+ * Lee el id de la URL y carga en game.html el juego correspondiente
+ * @method cargarJuego
+ */
+cargarJuego = () => {
+  // id de la url: game.html?id=103 -> "103"
+  const id = window.location.search.split("=")[1];
+
+  // buscamos el juego con ese id
+  let juegoActual = null;
+  juegos.forEach((juego) => {
+    if (juego.id == id) {
+      juegoActual = juego;
+    }
+  });
+
+  if (!juegoActual) {
+    document.getElementById("game-title").innerHTML = "Juego no encontrado";
+    return;
+  }
+
+  // banner y portada
+  document.getElementById("banner").style.setProperty("--banner", `url('${juegoActual.background_image}')`);
+  document.getElementById("game-cover").src = juegoActual.cover_image;
+
+  // titulo, descripcion y rating
+  document.title = `FINDG | ${juegoActual.name}`;
+  document.getElementById("game-title").innerHTML = juegoActual.name;
+  document.getElementById("game-desc").innerHTML = juegoActual.description;
+  document.getElementById("badge-rating").innerHTML = `★ ${juegoActual.rating}`;
+
+  // tienda
+  document.getElementById("btn-store").href = juegoActual.store_url;
+  document.getElementById("btn-store").hidden = false;
+
+  // generos
+  let generos = "";
+  juegoActual.genres.forEach((genero) => {
+    generos += `${genero.name} `;
+  });
+  document.getElementById("game-genres").innerHTML = generos;
+
+  // detalles
+  let plataformas = "";
+  juegoActual.platforms.forEach((plataforma) => {
+    plataformas += `${plataforma.name} `;
+  });
+  document.getElementById("details-list").innerHTML = `
+    <p>Desarrollador: ${juegoActual.developer}</p>
+    <p>Lanzamiento: ${juegoActual.released}</p>
+    <p>Plataformas: ${plataformas}</p>`;
+
+  // reseñas
+  let resenias = "";
+  juegoActual.reviews.forEach((resenia) => {
+    resenias += `<div class="review">
+                    <span>${resenia.user} ★ ${resenia.rating}</span>
+                    <p>${resenia.comment}</p>
+                 </div>`;
+  });
+  document.getElementById("reviews-list").innerHTML = resenias;
+
+  // galeria: primera imagen en el visor, todas en miniaturas
+  let miniaturas = "";
+  juegoActual.media.forEach((medio) => {
+    miniaturas += `<img src="${medio.url}" alt="${medio.title}" onclick="cambiarVisor('${medio.url}', '${medio.title}')">`;
+  });
+  document.getElementById("thumbs").innerHTML = miniaturas;
+  cambiarVisor(juegoActual.media[0].url, juegoActual.media[0].title);
+
+  // juegos similares: mismo genero principal
+  let similares = "";
+  juegos.forEach((juego) => {
+    if (juego.id != juegoActual.id && juego.genres[0].name == juegoActual.genres[0].name) {
+      similares += `<div class="card-skeleton" onclick="irAJuego(${juego.id})" style="cursor:pointer">
+                      <img alt="fondo-artwork" class="skeleton-img" src="${juego.background_image}">
+                      <span class="skeleton-title"> ${juego.name}</span>
+                      <span class="skeleton-rating"> ${juego.rating}</span>
+                    </div>`;
+    }
+  });
+  document.getElementById("similar-track").innerHTML = similares;
+}
+
+/**
+ * Desplaza la tira de miniaturas hacia la derecha
+ * @method desplazarMiniaturas
+ */
+desplazarMiniaturas = () => {
+  document.getElementById("thumbs").scrollLeft += 200;
+}
+
+/**
+ * Desplaza la tira de miniaturas (positivo = derecha, negativo = izquierda)
+ * @method desplazarMiniaturas
+ */
+desplazarMiniaturas = (pixeles) => {
+  document.getElementById("thumbs").scrollLeft += pixeles;
 }
