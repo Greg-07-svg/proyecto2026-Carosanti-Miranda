@@ -7,8 +7,10 @@
 
     <link rel="stylesheet" href="normalizado.css">
     <link rel="stylesheet" href="explore.css">
+
+    <script src="principal.js"></script>
 </head>
-<body>
+<body onload="cargarExplorados(); cantidadFiltrados()">
     <!--AGREGAR OM QUITAR DEPENDIENDO DE LA PAGINA COSAS AL HEADER Y FOOTER (USAR MISMAS CLASES !!!)-->
     <header class="header">
         <div class="header-container">
@@ -83,12 +85,6 @@
             <div id="explore-grid">
                 <!-- Se inyecta dinámicamente con JS (explore.js) -->
                 <div class="card-skeleton">Cargando catálogo...</div>
-            </div>
-
-            <div class="pagination-container" >
-                <button id="btn-prev" class="btn" disabled>&laquo; Anterior</button>
-                <span id="page-indicator">Página 1</span>
-                <button id="btn-next" class="btn">Siguiente &raquo;</button>
             </div>
 
         </section>

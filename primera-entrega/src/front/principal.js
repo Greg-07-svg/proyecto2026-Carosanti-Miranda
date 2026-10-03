@@ -191,7 +191,7 @@ juegoPrincipal = () => {
 cargarTendencias = () => {
   let tendencias = ""; 
 
-  juegos.forEach((juego) => {
+  juegos.sort((a,b) => (b.rating) - (a.rating)).slice(0, 5).forEach((juego) => {
     tendencias += `<div class="card-skeleton" onclick="irAJuego(${juego.id})">
                       <img alt = "fondo-artwork" class = "skeleton-img" src = "${juego.background_image}">
                       <span class = "skeleton-title"> ${juego.name}</span> 
@@ -317,4 +317,51 @@ cargarJuego = () => {
  */
 desplazarMiniaturas = (pixeles) => {
   document.getElementById("thumbs").scrollLeft += pixeles;
+}
+
+
+/**
+ * funcion que carga todos los juegos directamente en el explorador
+ * @method cargarTencargarExploradosdencias 
+ */
+cargarExplorados = () => {
+  let explorados = ""; 
+
+  juegos.forEach((juego) => {
+    explorados += `<div class="card-skeleton" onclick="irAJuego(${juego.id})">
+                      <img alt = "fondo-artwork" class = "skeleton-img" src = "${juego.background_image}">
+                      <span class = "skeleton-title"> ${juego.name}</span> 
+                      <span class = "skeleton-rating"> ${juego.rating}</span> 
+                   </div>`
+  });
+
+  document.getElementById("explore-grid").innerHTML = explorados; 
+}
+
+/**
+ * funcion para mostrar la cantidad de juegos mostrados en la pagina 
+ * @method cantidadFiltrados
+ */
+
+// ESTA FUNCION EN REALIDAD SE DEBE DE CARGAR CUANDO SED APLICAN FILTROS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+cantidadFiltrados = () => {
+
+  if (!juegos.length > 0){
+    document.getElementById("results-count").innerHTML = '0'
+  } else {
+    document.getElementById("results-count").innerHTML = parseInt(juegos.length) + ' ' + 'juegos' + ' ' + ' mostrados'
+  }
+
+}
+
+/**
+ * funcion para filtrar los juegos con el formulario 
+ * @method filtrarJuegos
+ */
+
+filtrarJuegos = () => { 
+
+
+
 }

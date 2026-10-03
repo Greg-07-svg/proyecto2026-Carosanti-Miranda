@@ -137,6 +137,47 @@ img{
     text-align: center;
 }
 
+.card-skeleton {
+    min-width: 250px;
+    height: 330px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+/*las cartas que se comparten en index y explorer*/
+
+.skeleton-img{
+    width: 250px;
+    height: 230px;
+    margin: 0.5rem;
+    border-radius: 0.7rem;
+}
+.skeleton-title{
+    margin-top: 0.5rem;
+
+}
+.skeleton-rating{
+    background-color:  rgba(255, 255, 255, 0.08);
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--distintivo-celeste);
+}
+
+.card-skeleton:hover {
+    border-color: var(--distintivo-celeste);
+    background-color: var(--bg-surface-hover);
+    color: var(--distintivo-celeste);
+}
+
 /*DEFINIR EL MEDIA QUERY PARA ESTE ARCHIVO !!!!*/
 
 @media (max-width: 768px) {
@@ -162,5 +203,3 @@ img{
         font-size: 1.02rem;
     }
 }
-
-
