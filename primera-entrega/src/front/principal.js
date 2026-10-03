@@ -312,14 +312,6 @@ cargarJuego = () => {
 }
 
 /**
- * Desplaza la tira de miniaturas hacia la derecha
- * @method desplazarMiniaturas
- */
-desplazarMiniaturas = () => {
-  document.getElementById("thumbs").scrollLeft += 200;
-}
-
-/**
  * Desplaza la tira de miniaturas (positivo = derecha, negativo = izquierda)
  * @method desplazarMiniaturas
  */
