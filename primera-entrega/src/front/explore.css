@@ -12,7 +12,7 @@
     border-radius: var(--radius-lg);
     padding: 1.5rem;
     position: sticky;
-    top: 90px; /* Queda fijo al hacer scroll */
+    top: 90px; /* el form queda fijo al hacer scroll */
 }
 
 .sidebar-title {
@@ -90,9 +90,7 @@
     color: var(--text-primary);
 }
 
-/* --------------------------------------------------------------------------
-   SEGUIR CON ESTO 
-   -------------------------------------------------------------------------- */
+/* parte resultados  */
 .results-header {
     display: flex;
     justify-content: space-between;
@@ -114,79 +112,8 @@
 /* Grilla de Tarjetas */
 #explore-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.25rem;
-}
-
-/* Estilos de las Tarjetas de Juegos  */
-.game-card {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: var(--transition);
-    text-decoration: none;
-}
-
-.game-card:hover {
-    border-color: var(--accent-cyan);
-    transform: translateY(-4px);
-}
-
-.game-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-
-.game-card-body {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    flex: 1;
-}
-
-.game-card-genre {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-}
-
-.game-card-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    line-height: 1.25;
-}
-
-.game-card-meta {
-    margin-top: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-.game-card-rating {
-    color: var(--accent-amber);
-}
-
-/* Contenedor de Paginación */
-.pagination-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-}
-
-#page-indicator {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    font-weight: 600;
 }
 
 
