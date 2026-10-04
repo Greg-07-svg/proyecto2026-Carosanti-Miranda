@@ -362,6 +362,6 @@ cantidadFiltrados = () => {
 
 filtrarJuegos = () => { 
 
-
+  
 
 }
