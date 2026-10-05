@@ -17,7 +17,10 @@ const juegos = [
       "imagenes/elden-ring-shadow-of-the-erdtree-backimage.webp",
     description:
       "Una expansión épica que lleva a los jugadores a explorar la Tierra de las Sombras, llena de nuevos jefes, armas y secretos oscuros por descubrir en un vasto mundo abierto.",
-    genres: [{ name: "RPG" }, { name: "Acción" }],
+    genres: [
+      { name: "RPG" }, 
+      { name: "Acción" }
+    ],
     platforms: [
       { name: "PC" },
       { name: "PlayStation 5" },
