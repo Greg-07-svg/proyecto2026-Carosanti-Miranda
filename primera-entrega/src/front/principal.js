@@ -17,10 +17,7 @@ const juegos = [
       "imagenes/elden-ring-shadow-of-the-erdtree-backimage.webp",
     description:
       "Una expansión épica que lleva a los jugadores a explorar la Tierra de las Sombras, llena de nuevos jefes, armas y secretos oscuros por descubrir en un vasto mundo abierto.",
-    genres: [
-      { name: "RPG" }, 
-      { name: "Acción" }
-    ],
+    genres: [{ name: "RPG" }, { name: "Acción" }],
     platforms: [
       { name: "PC" },
       { name: "PlayStation 5" },
@@ -419,7 +416,9 @@ filtrarJuegos = () => {
   let newJuegos = juegos;
 
   if (searchWord) {
-    newJuegos = newJuegos.filter((g) => g.name.toLowerCase().includes(searchWord.toLowerCase()));
+    newJuegos = newJuegos.filter((g) =>
+      g.name.toLowerCase().includes(searchWord.toLowerCase()),
+    );
     console.log("se aplico");
 
     if (!newJuegos.length > 0) {
@@ -429,8 +428,10 @@ filtrarJuegos = () => {
   }
 
   if (genero != "") {
-    newJuegos = newJuegos.filter.includes((g) => g.genres == genero);
-  } //esto hacer como con like (osea que contiene, un juego puede pertenecer a varios generos, preguntar !!!!!!!!)
+    newJuegos = newJuegos.filter((g) =>
+      g.genres.some((gen) => gen.name === genero),
+    );
+  }
 
   if (rating) {
     newJuegos = newJuegos.filter((g) => g.rating >= rating);
@@ -443,12 +444,25 @@ filtrarJuegos = () => {
       alert("el rango de anios no es adecuado");
       document.getElementById("year-input").value = "";
     }
-  } 
+  }
 
   cargarExplorados(newJuegos);
   document.getElementById("results-count").textContent = newJuegos.length;
 };
 
+/**
+ * al mover el filtro de rating, el numero debe modificarse
+ * @method aumentarRating
+ */
+aumentarRating = () => {
+  document.getElementById("rating-value").innerText =
+    document.getElementById("rating-range").value;
+};
+
+/**
+ * al clickear el boton de reiniciar, se reiniciar los filtros y se devuelven todos los juegos
+ * @method reiniciarBusqueda
+ */
 reiniciarBusqueda = () => {
   document.getElementById("search-input").value = "";
   document.getElementById("category-select").value = "";
@@ -456,6 +470,5 @@ reiniciarBusqueda = () => {
   document.getElementById("year-input").value = "";
 
   filtrarJuegos();
+  aumentarRating();
 };
-
-// FALTA QUE CUANDO SE AUM3ENTA EL RATING, CAMBIA EL NUMERO

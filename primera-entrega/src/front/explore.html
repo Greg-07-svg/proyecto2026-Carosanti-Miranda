@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Lucca Carosanti, Gregorio Miranda">
-    <meta name="description" content="FINDG: explorá el catálogo de videojuegos y filtrá por nombre, categoría, rating mínimo y año de lanzamiento.">
-    <meta name="keywords" content="explorar, catálogo, videojuegos, filtros, categoría, rating, año de lanzamiento, FINDG">
+    <meta name="description"
+        content="FINDG: explorá el catálogo de videojuegos y filtrá por nombre, categoría, rating mínimo y año de lanzamiento.">
+    <meta name="keywords"
+        content="explorar, catálogo, videojuegos, filtros, categoría, rating, año de lanzamiento, FINDG">
     <title>FINDG_Explorar</title>
 
     <link rel="stylesheet" href="normalizado.css">
@@ -13,6 +16,7 @@
 
     <script src="principal.js"></script>
 </head>
+
 <body onload="cargarExplorados()">
     <!--AGREGAR OM QUITAR DEPENDIENDO DE LA PAGINA COSAS AL HEADER Y FOOTER (USAR MISMAS CLASES !!!)-->
     <header class="header">
@@ -21,7 +25,7 @@
                 <img src="imagenes/favicon.ico" alt="icono" class="icon">
                 <h1 class="header-page-title">FINDG</h1>
             </a>
-            
+
             <nav class="nav-menu">
                 <a href="explore.html" class="nav-icon"> EXPLORAR </a>
                 <a href="favourite.html" class="nav-icon"> FAVORITOS </a>
@@ -31,11 +35,11 @@
 
     <main class="main-content explore-layout">
 
-        
+
         <aside class="filters-sidebar">
 
-            <form id="filters-form" >
-                
+            <form id="filters-form">
+
                 <fieldset class="filter-group">
                     <label for="search-input">BUSCAR</label>
                     <input type="text" id="search-input" placeholder="Nombre del juego..." size="20" maxlength="55">
@@ -45,23 +49,24 @@
                     <label for="category-select">CATEGORÍA</label>
                     <select id="category-select">
                         <option value="">Todos los géneros</option>
-                        <option value="action">Acción</option>
-                        <option value="indie">Aventura</option>
-                        <option value="role-playing-games-rpg">RPG</option>
-                        <option value="strategy">Estrategia</option>
-                        <option value="sports">Deportes</option>
-                        <option value="shooter">Shooter</option>
-                        <option value="racing">Carreras</option>
-                        <option value="puzzle">Puzzle</option>
+                        <option value="Acción">Acción</option>
+                        <option value="Aventura">Aventura</option>
+                        <option value="RPG">RPG</option>
+                        <option value="Estrategia">Estrategia</option>
+                        <option value="Deportes">Deportes</option>
+                        <option value="Shooter">Shooter</option>
+                        <option value="Carreras">Carreras</option>
+                        <option value="Puzzle">Puzzle</option>
                     </select>
                 </fieldset>
 
                 <fieldset class="filter-group">
                     <div class="filter-label-row">
                         <label for="rating-range">RATING MÍNIMO</label>
-                        <span id="rating-value" class="rating-badge-val">0.0+</span>
+                        <span id="rating-value" class="rating-badge-val">0</span>
                     </div>
-                    <input type="range" id="rating-range" min="0" max="5" step="0.5" value="0" >
+                    <input type="range" id="rating-range" min="0" max="5" step="0.5" value="0"
+                        onchange="aumentarRating()">
                 </fieldset>
 
                 <fieldset class="filter-group">
@@ -78,7 +83,7 @@
         </aside>
 
         <section class="results-section">
-            
+
             <div class="results-header">
                 <h1 class="page-title">Explorar Juegos</h1>
                 <span id="results-count" class="results-count"></span>
@@ -92,7 +97,7 @@
         </section>
 
     </main>
-    
+
     <footer class="footer">
         <div class="footer-container">
             <span>datos proporcionados por la API de RAWG (free tier) </span>
@@ -100,4 +105,5 @@
         </div>
     </footer>
 </body>
+
 </html>
