@@ -77,8 +77,6 @@
   color: var(--text-secondary);
   font-size: 0.95rem;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
@@ -159,7 +157,6 @@
 
   .hero-description {
     font-size: 0.85rem;
-    -webkit-line-clamp: 2; /* Muestra solo 2 líneas para no saturar el espacio */
   }
 
   .btn-primary {
