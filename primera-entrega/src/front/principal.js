@@ -276,7 +276,12 @@ irAJuego = (id) => {
  * @method dirigirExplorarFiltro
  */
 dirigirExplorarFiltro = () => {
-  //PREGUNTAR !!!
+  const genero = window.location.search.split("=")[1];
+
+  if (!genero) return;
+
+  document.getElementById("category-select").value = decodeURIComponent(genero);
+  filtrarJuegos();
 };
 
 /**
@@ -375,7 +380,7 @@ cargarJuego = () => {
     }
   });
   document.getElementById("similar-track").innerHTML = similares;
-    // boton de favoritos
+  // boton de favoritos
   document.getElementById("btn-fav").onclick = () =>
     alternarFavorito(juegoActual.id);
   actualizarBotonFavorito(juegoActual.id);
@@ -391,7 +396,7 @@ desplazarMiniaturas = (pixeles) => {
 
 /**
  * funcion que carga todos los juegos directamente en el explorador
- * @method cargarTencargarExploradosdencias
+ * @method cargarExplorados
  */
 cargarExplorados = (newJuegos = juegos) => {
   let explorados = "";
@@ -590,7 +595,8 @@ actualizarResumenFavoritos = () => {
   if (cantidad == 1) {
     document.getElementById("fav-count").innerHTML = "1 juego guardado";
   } else {
-    document.getElementById("fav-count").innerHTML = `${cantidad} juegos guardados`;
+    document.getElementById("fav-count").innerHTML =
+      `${cantidad} juegos guardados`;
   }
 
   let promedio = "-";
