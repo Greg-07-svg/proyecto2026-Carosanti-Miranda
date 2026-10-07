@@ -276,7 +276,12 @@ irAJuego = (id) => {
  * @method dirigirExplorarFiltro
  */
 dirigirExplorarFiltro = () => {
-  let valorDelGrid = document.getElementsByClassName;
+  const genero = window.location.search.split("=")[1];
+
+  if (!genero) return;
+
+  document.getElementById("category-select").value = decodeURIComponent(genero);
+  filtrarJuegos();
 };
 
 /**
