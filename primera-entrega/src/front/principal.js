@@ -281,6 +281,7 @@ dirigirExplorarFiltro = () => {
   if (!genero) return;
 
   document.getElementById("category-select").value = decodeURIComponent(genero);
+  filtrarJuegos();
 };
 
 /**

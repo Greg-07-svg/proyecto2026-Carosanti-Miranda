@@ -57,7 +57,7 @@
 
 - [x] Todas las etiquetas deben estar en minúscula
 - [x] Poner comillas a todos los atributos
-- [] **Title** debe contener el título de la página
+- [x] **Title** debe contener el título de la página
 - [x] En el `<head></head>` incluir las etiquetas `<meta>` detallando: autor, descripción y palabras clave
 - [x] Emplear al menos 3 etiquetas semánticas diferentes
 - [x] Emplear `<header></header>`. En el contenido de la cabecera debe haber un título `<h1></h1>`, puede tener color de fondo, algún logotipo, etc.
@@ -77,7 +77,7 @@
 - [x] Debe contener por lo menos una etiqueta `<img>` en la página.
 - [x] Todas las imágenes deben ser incluidas en el repositorio dentro de una carpeta llamada **imagenes** (salvo que sean demasiado pesadas. En ese caso, se puede emplear un servidor externo).
 - [x] No se deben subir videos en el repositorio (excepto que sean MUY livianos).
-- [ ] Toda imagen debe tener su atributo alt
+- [x] Toda imagen debe tener su atributo alt
 - [x] Las imágenes deben poseer un nombre representativo
 
 ## Sobre el CSS
@@ -91,28 +91,28 @@
 
 #### Sobre Accesibilidad
 
-- [ ] Toda imagen debe tener su atributo alt
+- [x] Toda imagen debe tener su atributo alt
 - [x] Todo `<input>` o `<select>` debe tener su `<label>`
 - [x] Los labels deben contener el atributo **for** (el for debe contener el id del input al cual se referencia)
-- [ ] Si hay una tabla en la página, debe contener `<caption></caption>`
+- [x] Si hay una tabla en la página, debe contener `<caption></caption>`
 
 #### Sobre la funcionalidad JavaScript
 
 Se debe agregar funcionalidad Js a la página HTML+CSS desarrollada
 
-- [ ] Una función que compruebe si los valores ingresados son correctos, y si no lo son, que le indique al usuario por un alert o dialog, y que blanquee el contenido del campo.
-- [ ] Una función que calcule/muestre algo en base a los valores ingresados por el usuario en los inputs.
-- [ ] El código Js debe estar en un archivo externo
-- [ ] Se debe emplear var, let o const según corresponda para mayor eficiencia
-- [ ] Los event listener deben ser colocados en el HTML
-- [ ] No deben existir funciones innecesarias que no se llamen en ninguna sección del código
-- [ ] Las funciones deben estar escritas cómo **función flecha**
-- [ ] No debe haber errores JavaScript presentes (F12 > Consola)
-- [ ] El funcionamiento de la página debe ser consistente.
+- [x] Una función que compruebe si los valores ingresados son correctos, y si no lo son, que le indique al usuario por un alert o dialog, y que blanquee el contenido del campo.
+- [x] Una función que calcule/muestre algo en base a los valores ingresados por el usuario en los inputs.
+- [x] El código Js debe estar en un archivo externo
+- [x] Se debe emplear var, let o const según corresponda para mayor eficiencia
+- [x] Los event listener deben ser colocados en el HTML
+- [x] No deben existir funciones innecesarias que no se llamen en ninguna sección del código
+- [x] Las funciones deben estar escritas cómo **función flecha**
+- [x] No debe haber errores JavaScript presentes (F12 > Consola)
+- [x] El funcionamiento de la página debe ser consistente.
 
 ## Sobre la documentación
 
-- [ ] **TODAS** las funciones javaScript deben estar documentadas como vimos en clase.
+- [x] **TODAS** las funciones javaScript deben estar documentadas como vimos en clase.
 
 ```javascript
 /**
