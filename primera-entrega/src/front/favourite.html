@@ -9,11 +9,11 @@
     <meta name="keywords" content="favoritos, biblioteca, videojuegos guardados, rating, juegos, FINDG">
     <title>FINDG_Favoritos</title>
 
-    <link rel="stylesheet" href="normalizado.css"> <!--primero el normalizado, luego el especifico-->
+    <link rel="stylesheet" href="normalizado.css"> <!--primero el normalizado y dsp el especifico-->
     <link rel="stylesheet" href="favourite.css">
 </head>
 
-<body>
+<body onload="cargarFavoritos();">
     <header class="header">
         <div class="header-container">
             <a href="index.html" class="icon-container">
@@ -36,14 +36,13 @@
             <div class="fav-head">
                 <div>
                     <h1 class="fav-title">Mis favoritos</h1>
-                    <p class="fav-subtitle">Los juegos que guardaste, con su rating y acceso directo a los detalles.</p>
                 </div>
                 <span class="fav-count" id="fav-count">0 juegos guardados</span>
             </div>
 
             <div class="fav-layout">
 
-                <!-- LISTA: las tarjetas las genera favourite.js -->
+                <!-- LISTA: las tarjetas las genera el favourite.js -->
                 <section class="fav-list" id="fav-list">
                     <p class="fav-msg">Cargando favoritos…</p>
                 </section>
@@ -52,7 +51,6 @@
                 <aside class="panel">
                     <h2 class="panel-title">Resumen</h2>
                     <div id="summary-list"></div>
-                    <p class="fav-note">Los favoritos se guardan en este navegador. Para agregar uno, tocá el ♡ en la página del juego.</p>
                 </aside>
 
             </div>
@@ -66,7 +64,7 @@
         </div>
     </footer>
 
-    <script src="favourite.js"></script>
+    <script src="principal.js"></script>
 </body>
 
 </html>
