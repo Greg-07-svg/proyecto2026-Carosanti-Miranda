@@ -13,7 +13,7 @@
     padding: 0 1.5rem;
 }
 
-/* ---------- ENCABEZADO ---------- */
+/*  ENCABEZADO  */
 .fav-breadcrumb {
     margin-top: 2.5rem;
     color: var(--text-secondary);
@@ -50,7 +50,7 @@
 }
 .fav-count::before { content: "● "; color: var(--text-secondary); }
 
-/* ---------- LAYOUT ---------- */
+/*  LAYOUT  */
 .fav-layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 340px;
@@ -71,7 +71,7 @@
 }
 .fav-msg .btn-primary { margin-top: 1rem; }
 
-/* ---------- TARJETA ---------- */
+/*  TARJETA  */
 .fav-card {
     display: grid;
     grid-template-columns: 300px minmax(0, 1fr);
@@ -127,13 +127,20 @@
     height: 42px;
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
-    background: var(--fav-red-bg);
-    color: var(--fav-red);
+    background: var(--bg-surface);
+    color: var(--text-secondary);
     font-size: 1.15rem;
     cursor: pointer;
     transition: var(--transition);
 }
-.btn-heart:hover { border-color: var(--fav-red); }
+.btn-heart:hover { border-color: var(--distintivo-celeste); }
+
+/* EL ENCENDIDO Y APAGADO EN COLOR CELESTE */
+.btn-heart.activo {
+    border-color: var(--distintivo-celeste);
+    color: var(--distintivo-celeste);
+    background: rgba(0, 184, 204, 0.12);
+}
 
 .btn-primary {
     display: inline-block;
@@ -147,7 +154,7 @@
 }
 .btn-primary:hover { filter: brightness(1.15); }
 
-/* ---------- PANEL RESUMEN ---------- */
+/*  PANEL RESUMEN  */
 .panel {
     background: var(--bg-surface);
     border: 1px solid var(--border-color);
@@ -176,7 +183,7 @@
     font-size: 0.85rem;
 }
 
-/* ---------- MEDIA QUERY ---------- */
+/*  MEDIA QUERY  */
 @media (max-width: 900px) {
     .fav-layout { grid-template-columns: 1fr; }
 }

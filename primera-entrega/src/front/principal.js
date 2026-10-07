@@ -375,6 +375,10 @@ cargarJuego = () => {
     }
   });
   document.getElementById("similar-track").innerHTML = similares;
+    // boton de favoritos
+  document.getElementById("btn-fav").onclick = () =>
+    alternarFavorito(juegoActual.id);
+  actualizarBotonFavorito(juegoActual.id);
 };
 
 /**
@@ -471,4 +475,181 @@ reiniciarBusqueda = () => {
 
   filtrarJuegos();
   aumentarRating();
+};
+
+/**
+ * Devuelve el array de ids guardados como favoritos (vacio si no hay ninguno)
+ * @method obtenerFavoritos
+ */
+obtenerFavoritos = () => {
+  const guardados = localStorage.getItem("favoritos");
+  if (!guardados) return [];
+  return JSON.parse(guardados);
+};
+
+/**
+ * Indica si un juego esta en favoritos
+ * @method esFavorito
+ */
+esFavorito = (id) => {
+  const favoritos = obtenerFavoritos();
+  let encontrado = false;
+  favoritos.forEach((favId) => {
+    if (favId == id) {
+      encontrado = true;
+    }
+  });
+  return encontrado;
+};
+
+/**
+ * Agrega el juego a favoritos si no estaba, o lo saca si ya estaba.
+ * Solo toca el localStorage (no toca ningun boton), asi sirve para las dos paginas.
+ * @method cambiarFavorito
+ */
+cambiarFavorito = (id) => {
+  const favoritos = obtenerFavoritos();
+  let nuevos = [];
+
+  if (esFavorito(id)) {
+    favoritos.forEach((favId) => {
+      if (favId != id) {
+        nuevos.push(favId);
+      }
+    });
+  } else {
+    nuevos = favoritos;
+    nuevos.push(id);
+  }
+
+  localStorage.setItem("favoritos", JSON.stringify(nuevos));
+};
+
+/**
+ * Boton ♡ de game.html: cambia el favorito y actualiza el boton
+ * @method alternarFavorito
+ */
+alternarFavorito = (id) => {
+  cambiarFavorito(id);
+  actualizarBotonFavorito(id);
+};
+
+/**
+ * Cambia el aspecto del boton ♡ de game.html segun si el juego esta o no en favoritos
+ * @method actualizarBotonFavorito
+ */
+actualizarBotonFavorito = (id) => {
+  const boton = document.getElementById("btn-fav");
+  if (esFavorito(id)) {
+    boton.innerHTML = "♥";
+    boton.setAttribute("aria-pressed", "true");
+  } else {
+    boton.innerHTML = "♡";
+    boton.setAttribute("aria-pressed", "false");
+  }
+};
+
+/**
+ * Corazon de una tarjeta en favourite.html: parte encendido (♥), al clickearlo
+ * se apaga (♡) y se saca de favoritos; si se clickea de nuevo, se vuelve a agregar
+ * @method alternarFavoritoLista
+ */
+alternarFavoritoLista = (id) => {
+  cambiarFavorito(id);
+
+  const boton = document.getElementById(`fav-btn-${id}`);
+  if (esFavorito(id)) {
+    boton.innerHTML = "♥";
+    boton.classList.add("activo");
+  } else {
+    boton.innerHTML = "♡";
+    boton.classList.remove("activo");
+  }
+
+  actualizarResumenFavoritos();
+};
+
+/**
+ * Actualiza el contador y el resumen lateral segun los favoritos guardados
+ * @method actualizarResumenFavoritos
+ */
+actualizarResumenFavoritos = () => {
+  const favoritos = obtenerFavoritos();
+  let cantidad = 0;
+  let sumaRating = 0;
+
+  favoritos.forEach((favId) => {
+    juegos.forEach((juego) => {
+      if (juego.id == favId) {
+        cantidad++;
+        sumaRating += juego.rating;
+      }
+    });
+  });
+
+  if (cantidad == 1) {
+    document.getElementById("fav-count").innerHTML = "1 juego guardado";
+  } else {
+    document.getElementById("fav-count").innerHTML = `${cantidad} juegos guardados`;
+  }
+
+  let promedio = "-";
+  if (cantidad > 0) {
+    promedio = `★ ${(sumaRating / cantidad).toFixed(1)}`;
+  }
+
+  document.getElementById("summary-list").innerHTML = `
+    <div class="row"><span class="row-label">Juegos guardados</span><span class="row-value">${cantidad}</span></div>
+    <div class="row"><span class="row-label">Rating promedio</span><span class="row-value">${promedio}</span></div>`;
+};
+
+/**
+ * Carga en favourite.html las tarjetas de los juegos favoritos
+ * @method cargarFavoritos
+ */
+cargarFavoritos = () => {
+  const favoritos = obtenerFavoritos();
+  let lista = "";
+  let cantidad = 0;
+
+  favoritos.forEach((favId) => {
+    juegos.forEach((juego) => {
+      if (juego.id == favId) {
+        cantidad++;
+
+        let etiquetas = "";
+        juego.genres.forEach((genero) => {
+          etiquetas += `<span class="fav-tag">${genero.name}</span>`;
+        });
+
+        lista += `<div class="fav-card">
+                    <img class="fav-img" src="${juego.background_image}" alt="${juego.name}">
+                    <div class="fav-body">
+                      <div class="fav-info">
+                        <p class="fav-meta">${juego.released}<span>${juego.developer}</span></p>
+                        <h3 class="fav-name">${juego.name}</h3>
+                        <p class="fav-desc">${juego.description}</p>
+                        <div class="fav-tags">${etiquetas}</div>
+                      </div>
+                      <div class="fav-actions">
+                        <span class="fav-rating">★ ${juego.rating}</span>
+                        <div class="fav-buttons">
+                          <a href="game.html?id=${juego.id}" class="btn-primary">Ver detalles</a>
+                          <button type="button" class="btn-heart activo" id="fav-btn-${juego.id}" onclick="alternarFavoritoLista(${juego.id})" aria-label="Quitar o agregar a favoritos">♥</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>`;
+      }
+    });
+  });
+
+  if (cantidad == 0) {
+    document.getElementById("fav-list").innerHTML =
+      `<p class="fav-msg">Todavía no guardaste ningún favorito. <a href="explore.html">Explorá juegos</a></p>`;
+  } else {
+    document.getElementById("fav-list").innerHTML = lista;
+  }
+
+  actualizarResumenFavoritos();
 };
