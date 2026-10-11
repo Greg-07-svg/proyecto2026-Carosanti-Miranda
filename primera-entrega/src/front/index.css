@@ -93,7 +93,6 @@
 }
 
 .btn-primary:hover {
-  background-color: var(--accent-cyan-hover);
   transform: translateY(-2px);
 }
 
