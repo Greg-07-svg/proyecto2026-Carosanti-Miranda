@@ -422,8 +422,8 @@ img {
 /* Layout de 2 columnas */
 .explore-layout {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 2rem;
+  grid-template-columns: 290px 1fr;
+  gap: 3rem;
   align-items: start;
 }
 
@@ -434,20 +434,30 @@ img {
   padding: 1.5rem;
   position: sticky;
   top: 90px; /* el form queda fijo al hacer scroll */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+#filters-form,
 .filters-form {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  align-items: center;
+  width: 100%;
+  gap: 1.25rem;
 }
 
 .filter-group {
   display: flex;
   flex-direction: column;
-  border: 0.5dvh solid rgba(255, 255, 255, 0.05);
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
   width: 100%;
-  margin-top: 0.8rem;
+  box-sizing: border-box;
 }
 
 .filter-group label {
@@ -457,23 +467,36 @@ img {
   letter-spacing: 0.5px;
   text-transform: uppercase;
   text-align: center;
+  width: 100%;
 }
 
 #search-input,
 #category-select,
 #year-input {
-  background-color: var(--bg-surface);
+  background-color: var(--bg-surface-hover);
   text-align: center;
   color: var(--text-primary);
-  border: none;
-  margin-top: 0.7rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  margin-top: 0.6rem;
+  padding: 0.45rem 0.6rem;
+  width: 100%;
+  max-width: 210px;
+  box-sizing: border-box;
 }
 
 .filter-label-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  width: 100%;
+  padding: 0.25rem 0;
+}
+
+#rating-range {
+  width: 100%;
+  max-width: 210px;
+  margin-top: 0.5rem;
 }
 
 .rating-badge-val {
@@ -485,9 +508,18 @@ img {
 .filter-actions {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.6rem;
   margin-top: 0.5rem;
   border: none;
+  width: 100%;
+  padding: 0;
+}
+
+.filter-actions .btn {
+  width: 100%;
+  max-width: 210px;
+  text-align: center;
 }
 
 .btn {
@@ -543,10 +575,16 @@ img {
     top: 0;
   }
 
+  #filters-form,
   .filters-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    width: 100%;
+  }
+
+  .filter-actions {
+    grid-column: 1 / -1;
   }
 
   .results-header {
@@ -1006,9 +1044,10 @@ img {
 
 .game-desc {
   margin-top: 1.25rem;
-  max-width: 75ch;
+  max-width: 100%;
+  font-size: 0.95rem;
+  line-height: 1.6;
   color: var(--text-secondary);
-  white-space: pre-line;
 }
 
 /* paneles laterales */

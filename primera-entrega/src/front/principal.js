@@ -605,7 +605,6 @@ actualizarResumenFavoritos = () => {
   }
 
   document.getElementById("summary-list").innerHTML = `
-    <div class="row"><span class="row-label">Juegos guardados</span><span class="row-value">${cantidad}</span></div>
     <div class="row"><span class="row-label">Rating promedio</span><span class="row-value">${promedio}</span></div>`;
 };
 
