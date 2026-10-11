@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Lucca Carosanti, Gregorio Miranda">
-    <meta name="description" content="FINDG: detalles de un videojuego con galería de imágenes, rating, reseñas y juegos similares.">
+    <meta name="description"
+        content="FINDG: detalles de un videojuego con galería de imágenes, rating, reseñas y juegos similares.">
     <meta name="keywords" content="videojuego, detalles, galería, reseñas, rating, juegos similares, tienda, FINDG">
     <title>FINDG_Juego</title>
+
+    <link rel="shortcut icon" href="imagenes/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="normalizado.css"> <!--primero el normalizado, luego el especifico-->
     <link rel="stylesheet" href="game.css">
 
     <script src="principal.js"></script>
 </head>
+
 <body onload="cargarJuego()">
     <!--AGREGAR OM QUITAR DEPENDIENDO DE LA PAGINA COSAS AL HEADER Y FOOTER (USAR MISMAS CLASES !!!)-->
     <header class="header">
@@ -21,7 +26,7 @@
                 <img src="imagenes/favicon.ico" alt="icono" class="icon">
                 <h1 class="header-page-title">FINDG</h1>
             </a>
-            
+
             <nav class="nav-menu">
                 <a href="explore.html" class="nav-icon"> EXPLORAR </a>
                 <a href="favourite.html" class="nav-icon"> FAVORITOS </a>
@@ -44,8 +49,10 @@
                 </div>
 
                 <div class="banner-actions">
-                    <button class="btn-icon" id="btn-fav" type="button" aria-pressed="false" aria-label="Agregar a favoritos">♡</button>
-                    <a href="#" class="btn-primary" id="btn-store" target="_blank" rel="noopener" hidden>Ir a la tienda</a>
+                    <button class="btn-icon" id="btn-fav" type="button" aria-pressed="false"
+                        aria-label="Agregar a favoritos">♡</button>
+                    <a href="#" class="btn-primary" id="btn-store" target="_blank" rel="noopener" hidden>Ir a la
+                        tienda</a>
                 </div>
             </div>
         </section>
@@ -57,9 +64,11 @@
                 <div class="viewer" id="viewer"></div>
 
                 <div class="thumbs-wrap">
-                    <button class="thumbs-prev" id="thumbs-prev" type="button" aria-label="Ver miniaturas anteriores" onclick="desplazarMiniaturas(-200)">‹</button>
-                <div class="thumbs" id="thumbs"></div>
-                <button class="thumbs-next" id="thumbs-next" type="button" aria-label="Ver más miniaturas" onclick="desplazarMiniaturas(200)">›</button>
+                    <button class="thumbs-prev" id="thumbs-prev" type="button" aria-label="Ver miniaturas anteriores"
+                        onclick="desplazarMiniaturas(-200)">‹</button>
+                    <div class="thumbs" id="thumbs"></div>
+                    <button class="thumbs-next" id="thumbs-next" type="button" aria-label="Ver más miniaturas"
+                        onclick="desplazarMiniaturas(200)">›</button>
                 </div>
 
                 <p class="game-desc" id="game-desc"></p>
@@ -89,8 +98,10 @@
             <div class="similar-head">
                 <h2 class="section-title">Juegos similares</h2>
                 <div class="similar-nav">
-                    <button class="btn-icon" id="sim-prev" type="button" aria-label="Anterior" onclick="desplazarMiniaturas(-200)">‹</button>
-                    <button class="btn-icon" id="sim-next" type="button" aria-label="Siguiente" onclick="desplazarMiniaturas(200)">›</button>
+                    <button class="btn-icon" id="sim-prev" type="button" aria-label="Anterior"
+                        onclick="desplazarMiniaturas(-200)">‹</button>
+                    <button class="btn-icon" id="sim-next" type="button" aria-label="Siguiente"
+                        onclick="desplazarMiniaturas(200)">›</button>
                 </div>
             </div>
             <div class="similar-track" id="similar-track"></div>
@@ -106,4 +117,5 @@
     </footer>
 
 </body>
+
 </html>
