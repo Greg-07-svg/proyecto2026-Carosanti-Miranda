@@ -2,21 +2,40 @@
 
 ---
 
-## AUTORES
+## Índice
 
-**Gregorio Miranda**
-
-**Lucca Carosanti**
-
----
-
-### DESCRIPCION
-
-FINDG es una pagina web planteada por **dos estudiantes** de ing.Informatica en la UCC con la idea de poder buscar juegos cuando no sabes que queres jugar
+- [Autores](#autores)
+- [Descripción](#descripción)
+- [Funcionalidades](#funcionalidades)
+- [Tecnologías](#tecnologías)
+- [Link de la página](#link-de-la-página)
 
 ---
 
-### TECNOLOGIAS
+## Autores
+
+- **Gregorio Miranda**
+- **Lucca Carosanti**
+
+---
+
+### Descripción
+
+FINDG es una página web planteada por **dos estudiantes** de Ingeniería en Informática en la UCC con la idea de poder buscar juegos cuando no sabes qué querés jugar.
+
+---
+
+### Funcionalidades
+
+- **Juego del día:** recomendación destacada en la pantalla principal.
+- **Tendencias:** visualización de los títulos más populares y valorados.
+- **Explorador:** catálogo para filtrar y encontrar videojuegos por categorías y géneros.
+- **Favoritos:** lista personalizada para guardar los juegos preferidos.
+- **Diseño responsive:** interfaz adaptable tanto para computadoras de escritorio como para dispositivos móviles.
+
+---
+
+### Tecnologías
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -30,6 +49,6 @@ FINDG es una pagina web planteada por **dos estudiantes** de ing.Informatica en 
 
 ---
 
-### Link de la pagina
+### Link de la página
 
-**[FINDG](https://greg-07-svg.github.io/proyecto2026-Carosanti-Miranda/primera-entrega/src/front/index.html)**
+- **[FINDG en GitHub Pages](https://greg-07-svg.github.io/proyecto2026-Carosanti-Miranda/primera-entrega/src/front/index.html)**

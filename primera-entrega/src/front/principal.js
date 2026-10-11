@@ -372,7 +372,7 @@ cargarJuego = () => {
       juego.id != juegoActual.id &&
       juego.genres[0].name == juegoActual.genres[0].name
     ) {
-      similares += `<div class="card-skeleton" onclick="irAJuego(${juego.id})" style="cursor:pointer">
+      similares += `<div class="card-skeleton" onclick="irAJuego(${juego.id})" >
                       <img alt="fondo-artwork" class="skeleton-img" src="${juego.background_image}">
                       <span class="skeleton-title"> ${juego.name}</span>
                       <span class="skeleton-rating"> ${juego.rating}</span>
@@ -605,7 +605,6 @@ actualizarResumenFavoritos = () => {
   }
 
   document.getElementById("summary-list").innerHTML = `
-    <div class="row"><span class="row-label">Juegos guardados</span><span class="row-value">${cantidad}</span></div>
     <div class="row"><span class="row-label">Rating promedio</span><span class="row-value">${promedio}</span></div>`;
 };
 
