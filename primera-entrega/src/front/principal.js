@@ -421,7 +421,7 @@ filtrarJuegos = () => {
   let searchWord = document.getElementById("search-input").value;
   let genero = document.getElementById("category-select").value;
   let rating = document.getElementById("rating-range").value;
-  let year = document.getElementById("year-input").value;
+  let year = parseInt(document.getElementById("year-input").value);
   let newJuegos = juegos;
 
   if (searchWord) {
@@ -453,6 +453,13 @@ filtrarJuegos = () => {
       alert("el rango de anios no es adecuado");
       document.getElementById("year-input").value = "";
     }
+  }
+
+  if ((searchWord == "") & (genero == "") & (rating == 0) & (year == "")) {
+    document.getElementById("error-msg").innerHTML =
+      `<p> introduce un termino de busqueda antes de mandar </p> `;
+  } else {
+    document.getElementById("error-msg").innerHTML = ``;
   }
 
   cargarExplorados(newJuegos);

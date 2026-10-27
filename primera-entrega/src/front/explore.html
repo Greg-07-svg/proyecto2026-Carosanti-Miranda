@@ -15,7 +15,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anta&family=Caacupe+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
     <script src="principal.js"></script>
@@ -77,6 +77,10 @@
                     <label for="year-input">AÑO DE LANZAMIENTO</label>
                     <input type="number" id="year-input" placeholder="Ej. 2023, 2024" min="1980" max="2026">
                 </fieldset>
+
+                <div id="error-msg">
+
+                </div>
 
                 <fieldset class="filter-actions">
                     <button type="button" class="btn" onclick="filtrarJuegos()">Aplicar Filtros</button>
