@@ -504,6 +504,11 @@ img {
   font-weight: 700;
 }
 
+#error-msg {
+  color: rgb(201, 0, 0);
+  text-align: center;
+}
+
 .filter-actions {
   display: flex;
   flex-direction: column;
