@@ -3,19 +3,19 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout.jsx";
 import Home from "./pages/home.jsx";
-import Favourite from "./pages/favourite.jsx";
-import Explore from "./pages/explore.jsx";
-import Game from "./pages/game.jsx";
+// import Favourite from "./pages/favourite.jsx";
+// import Explore from "./pages/explore.jsx";
+// import Game from "./pages/game.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/home" element={<Home />} />
-          <Route path="/favoritos" element={<Favourite />} />
-          <Route path="/juego" element={<Game />} />
-          <Route path="/explorar" element={<Explore />} />
+          <Route index element={<Home />} />
+          {/*<Route path="/favoritos" element={<Favourite />} />*/}
+          {/*<Route path="/juego" element={<Game />} />*/}
+          {/*<Route path="/explorar" element={<Explore />} />*/}
         </Route>
       </Routes>
     </BrowserRouter>
