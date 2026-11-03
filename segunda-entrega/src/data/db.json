@@ -1,0 +1,244 @@
+{
+  "juegos": [
+    {
+      "id": 101,
+      "name": "Elden Ring: Shadow of the Erdtree",
+      "rating": 4.9,
+      "released": "2024",
+      "developer": "FromSoftware",
+      "store_url": "https://store.steampowered.com/app/1245620/ELDEN_RING/",
+      "cover_image": "primera-entrega/imagenes/elden-ring-logo.webp",
+      "background_image": "primera-entrega/imagenes/elden-ring-shadow-of-the-erdtree-backimage.webp",
+      "description": "Una expansión épica que lleva a los jugadores a explorar la Tierra de las Sombras, llena de nuevos jefes, armas y secretos oscuros por descubrir en un vasto mundo abierto.",
+      "genres": [
+        { "name": "RPG" },
+        { "name": "Acción" }
+      ],
+      "platforms": [
+        { "name": "PC" },
+        { "name": "PlayStation 5" },
+        { "name": "Xbox Series X" }
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/paintings-elden-ring-shadow-of-the-erdtree.webp",
+          "title": "Artwork Principal"
+        },
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/elden-ring-boss.webp",
+          "title": "Combate de Jefe"
+        },
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/elden-ring-shadow-of-the-erdtree-exploracion.webp",
+          "title": "Exploración"
+        }
+      ],
+      "reviews": [
+        {
+          "user": "Alexander_V",
+          "rating": 5,
+          "comment": "Una obra maestra indiscutible. La dificultad es alta pero sumamente gratificante."
+        },
+        {
+          "user": "GamerPro99",
+          "rating": 4.8,
+          "comment": "El diseño del mundo y los nuevos jefes superaron mis expectativas."
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "name": "Cyberpunk 2077: Phantom Liberty",
+      "rating": 4.8,
+      "released": "2023",
+      "developer": "CD Projekt Red",
+      "store_url": "https://store.steampowered.com/app/1091500/Cyberpunk_2077/",
+      "cover_image": "primera-entrega/imagenes/cyberpunk-2077-logo.webp",
+      "background_image": "primera-entrega/imagenes/cyberpunk-2077-background.webp",
+      "description": "Una aventura de espionaje y suspenso donde encarnas al mercenario V en una misión de alto riesgo dentro del peligroso distrito de Dogtown en Night City.",
+      "genres": [
+        { "name": "Acción" },
+        { "name": "RPG" }
+      ],
+      "platforms": [
+        { "name": "PC" },
+        { "name": "PlayStation 5" }
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/Cyberpunk-2077-Phantom-Liberty-ciudad.webp",
+          "title": "Dogtown Night City"
+        },
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/cyberpunk-1.webp",
+          "title": "parte_ciudad_1_día"
+        },
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/cyberpunk-2.webp",
+          "title": "parte_ciudad_2_día"
+        }
+      ],
+      "reviews": [
+        {
+          "user": "NeonKnight",
+          "rating": 5,
+          "comment": "Increíble historia y la redención perfecta para Cyberpunk."
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "name": "Baldur's Gate 3",
+      "rating": 4.9,
+      "released": "2023",
+      "developer": "Larian Studios",
+      "store_url": "https://store.steampowered.com/app/1086940/Baldurs_Gate_3/",
+      "cover_image": "primera-entrega/imagenes/baldurs-gate-3-logo.webp",
+      "background_image": "primera-entrega/imagenes/Baldurs-gate-3-background.webp",
+      "description": "Un juego de rol de próxima generación ambientado en el mundo de Dungeons & Dragons, donde tus elecciones dan forma a una historia de amistad, traición y supervivencia.",
+      "genres": [
+        { "name": "RPG" },
+        { "name": "Estrategia" }
+      ],
+      "platforms": [
+        { "name": "PC" },
+        { "name": "PlayStation 5" },
+        { "name": "Xbox Series X" }
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/campamento-baldurs-gate-3.webp",
+          "title": "Campamento de Héroes"
+        },
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/baldur-1.jpg",
+          "title": "personaje_demonio"
+        },
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/baldur-2.jpg",
+          "title": "editor_personaje"
+        }
+      ],
+      "reviews": [
+        {
+          "user": "TavernMaster",
+          "rating": 5,
+          "comment": "Libertad absoluta para resolver los combates y misiones."
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "name": "Hollow Knight",
+      "rating": 4.7,
+      "released": "2017",
+      "developer": "Team Cherry",
+      "store_url": "https://store.steampowered.com/app/367520/Hollow_Knight/",
+      "cover_image": "primera-entrega/imagenes/holow-knight-cover.webp",
+      "background_image": "primera-entrega/imagenes/hollow-knight-background.webp",
+      "description": "Desciende al mundo de Hallownest, un reino en ruinas lleno de insectos y héroes. Explora cavernas retorcidas, combate criaturas corrompidas y forja tu propio camino.",
+      "genres": [
+        { "name": "Aventura" },
+        { "name": "Acción" }
+      ],
+      "platforms": [
+        { "name": "PC" },
+        { "name": "Nintendo Switch" }
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/hollow-knight-dirtmouth.webp",
+          "title": "Boca Sucia"
+        },
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/hollow-1.jpg",
+          "title": "Grimm Battle"
+        },
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/hollow-2.jpg",
+          "title": "Canales_Reales"
+        },
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/hollow-3.jpg",
+          "title": "Sendero_Verde"
+        },
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/hollow-4.jpg",
+          "title": "False_Knight_Boss"
+        },
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/hollow-5.jpg",
+          "title": "Inventario"
+        },
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/hollow-6.jpg",
+          "title": "La_Colmena"
+        }
+      ],
+      "reviews": [
+        {
+          "user": "BugHunter",
+          "rating": 5,
+          "comment": "Arte visual y música inigualables."
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "name": "Portal 2",
+      "rating": 4.9,
+      "released": "2011",
+      "developer": "Valve",
+      "store_url": "https://store.steampowered.com/app/620/Portal_2/",
+      "cover_image": "primera-entrega/imagenes/portal2-cover.webp",
+      "background_image": "primera-entrega/imagenes/portal2-background.webp",
+      "description": "Una hilarante y brillante aventura de acertijos en primera persona donde usas un dispositivo de portales para resolver intrincadas cámaras de pruebas.",
+      "genres": [
+        { "name": "Puzzle" }
+      ],
+      "platforms": [
+        { "name": "PC" }
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/portal2-camara-de-pruebas.webp",
+          "title": "Cámara de Pruebas"
+        },
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/portal_2-1.jpg",
+          "title": "Exterior"
+        },
+        {
+          "type": "image",
+          "url": "primera-entrega/imagenes/portal_2-2.jpg",
+          "title": "pasillo"
+        }
+      ],
+      "reviews": [
+        {
+          "user": "ApertureScience",
+          "rating": 5,
+          "comment": "El mejor juego de acertijos de la historia."
+        }
+      ]
+    }
+  ]
+}

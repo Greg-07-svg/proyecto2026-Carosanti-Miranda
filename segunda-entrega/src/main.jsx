@@ -2,10 +2,10 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout.jsx";
-import Home from "./pages/home.jsx";
-// import Favourite from "./pages/favourite.jsx";
-// import Explore from "./pages/explore.jsx";
-// import Game from "./pages/game.jsx";
+import Home from "@pages/home.jsx";
+// import Favourite from "@pages/favourite.jsx";
+// import Explore from "@pages/explore.jsx";
+// import Game from "@pages/game.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

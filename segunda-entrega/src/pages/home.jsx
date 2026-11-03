@@ -1,4 +1,4 @@
-import "../styles/style.css";
+import "@styles/style.css";
 
 const Home = () => {
   return (
@@ -30,45 +30,27 @@ const Home = () => {
 
         <div className="categories-grid">
           {/* onClick="dirigirExplorarFiltro()" */}
-          <a
-            href="explore.html?category=Acción"
-            className="category-card"
-          >
+          <a href="explore.html?category=Acción" className="category-card">
             Acción
           </a>
           {/* onclick="dirigirExplorarFiltro()" */}
-          <a
-            href="explore.html?category=Aventura"
-            className="category-card"
-          >
+          <a href="explore.html?category=Aventura" className="category-card">
             Aventura
           </a>
           {/* onclick="dirigirExplorarFiltro()" */}
-          <a
-            href="explore.html?category=RPG  "
-            className="category-card"
-          >
+          <a href="explore.html?category=RPG  " className="category-card">
             RPG
           </a>
           {/* onclick="dirigirExplorarFiltro()" */}
-          <a
-            href="explore.html?category=Estrategia"
-            className="category-card"
-          >
+          <a href="explore.html?category=Estrategia" className="category-card">
             Estrategia
           </a>
           {/* onclick="dirigirExplorarFiltro()" */}
-          <a
-            href="explore.html?category=Deportes"
-            className="category-card"
-          >
+          <a href="explore.html?category=Deportes" className="category-card">
             Deportes
           </a>
           {/* onclick="dirigirExplorarFiltro()" */}
-          <a
-            href="explore.html?category=Puzzle"
-            className="category-card"
-          >
+          <a href="explore.html?category=Puzzle" className="category-card">
             Puzzle
           </a>
         </div>
