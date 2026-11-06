@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Card from "@components/card.jsx";
 import { getGames } from "@api/api.js";
 import { juego_del_dia } from "../utils/juegodeldia.js";
-import "@styles/style.css";
+import "@styles/style.scss";
 
 // Categorias disponibles para explorar
 const CATEGORIAS = ["Acción", "Aventura", "RPG", "Estrategia", "Deportes", "Puzzle"];
