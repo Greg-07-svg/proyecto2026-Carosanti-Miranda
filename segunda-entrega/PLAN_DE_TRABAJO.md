@@ -14,17 +14,7 @@
 - [x] **Componente Footer:** [`src/components/footer.jsx`](file:///C:/Users/miran/OneDrive/Escritorio/prog/Desarrollo-Web/proyecto2026-Carosanti-Miranda/segunda-entrega/src/components/footer.jsx) implementado como función flecha con créditos y fuente de datos RAWG.
 - [x] **Componente genérico Card:** [`src/components/card.jsx`](file:///C:/Users/miran/OneDrive/Escritorio/prog/Desarrollo-Web/proyecto2026-Carosanti-Miranda/segunda-entrega/src/components/card.jsx) implementado como función flecha, recibe `{ game }` directo de la API, sin JSDoc ni atributos sobrantes.
 - [x] **Enrutamiento base y Layout:** [`src/Layout.jsx`](file:///C:/Users/miran/OneDrive/Escritorio/prog/Desarrollo-Web/proyecto2026-Carosanti-Miranda/segunda-entrega/src/Layout.jsx) con `<Header />`, `<Outlet />` y `<Footer />`, y [`src/main.jsx`](file:///C:/Users/miran/OneDrive/Escritorio/prog/Desarrollo-Web/proyecto2026-Carosanti-Miranda/segunda-entrega/src/main.jsx) con `BrowserRouter`.
-
----
-
-> [!IMPORTANT]
-> 🎯 **SIGUIENTE PASO INMEDIATO: IMPLEMENTACIÓN DE LA API Y MOCK SERVER**
-> 1. **Instalar `json-server`** en modo desarrollo (`npm install -D json-server`) y agregar el script en `package.json`:
->    `"server": "json-server --watch src/data/db.json --port 4000"`
-> 2. **Crear el módulo de servicio API** [`src/api/gamesService.js`](file:///C:/Users/miran/OneDrive/Escritorio/prog/Desarrollo-Web/proyecto2026-Carosanti-Miranda/segunda-entrega/src/api/gamesService.js) empleando `fetch` y funciones `async/await`:
->    - `getGames()`: lectura de todos los videojuegos (`GET http://localhost:4000/juegos`).
->    - `getGameById(id)`: lectura de un videojuego por ID (`GET http://localhost:4000/juegos/:id`).
->    - Mutación mock (`addReview` o PATCH) para satisfacer el requerimiento de la rúbrica oficial.
+- [x] **Capa de API:** [`src/api/api.js`](file:///C:/Users/miran/OneDrive/Escritorio/prog/Desarrollo-Web/proyecto2026-Carosanti-Miranda/segunda-entrega/src/api/api.js) implementada con `fetch` y `async/await` (`getGames`, `getGameById`, `getFavorites`, `addFavorite`, `removeFavorite`).
 
 ---
 
@@ -50,7 +40,7 @@
 | **Componente genérico reutilizable (Card / Button / Input)** | Dev B | `src/components/card.jsx` utilizado en Home, Explore, Game |
 | **Validaciones en tiempo real (onChange + accesibilidad)** | Dev B | `src/pages/explore.jsx` (filtros con mensajes de error accesibles) |
 | **Persistencia en localStorage** | Dev A & B | `localStorage` con clave `"favoritos"` (guardar/quitar IDs) |
-| **Mock de servicio (db.json) + fetch async/await** | Dev A | `src/api/gamesService.js` (lectura y operaciones mock) |
+| **Mock de servicio (db.json) + fetch async/await** | Dev A | [`src/api/api.js`](file:///C:/Users/miran/OneDrive/Escritorio/prog/Desarrollo-Web/proyecto2026-Carosanti-Miranda/segunda-entrega/src/api/api.js) (GET, POST y DELETE de juegos y favoritos) |
 | **Imagen en /public y en assets** | Dev A & Dev B | Logo/Favicon en `/public` e íconos/fondos en `src/assets/` |
 | **SASS: todos los estilos en .scss dentro de /styles** | Dev B | `src/styles/*.scss` importados con alias `@styles/...` |
 | **Sin atributos no usados ni warnings de ESLint** | Ambos | Control de calidad con `npm run lint` |
@@ -72,7 +62,7 @@ Para evitar colisiones de Git y maximizar la independencia de trabajo:
 graph TD
     subgraph Dev A [Desarrollador A - Core, Datos y Detalle]
         A1["vite.config.js (Alias fix)"]
-        A2["src/api/gamesService.js (fetch async/await)"]
+        A2["src/api/api.js (fetch async/await)"]
         A3["src/components/header.jsx & footer.jsx"]
         A4["src/pages/home.jsx (Lógica juego del día + tendencias)"]
         A5["src/pages/game.jsx (/juego/:id, galería, reseñas, store)"]
@@ -145,10 +135,10 @@ flowchart TD
   - **Mensaje:** `fix(vite): corregir resolucion de alias ESM y dependencias de node`
   - **Archivos:** [`vite.config.js`](file:///C:/Users/miran/OneDrive/Escritorio/prog/Desarrollo-Web/proyecto2026-Carosanti-Miranda/segunda-entrega/vite.config.js), [`package.json`](file:///C:/Users/miran/OneDrive/Escritorio/prog/Desarrollo-Web/proyecto2026-Carosanti-Miranda/segunda-entrega/package.json)
   - **Detalle:** Importar `fileURLToPath` y `URL` desde `node:url` para solucionar el `ReferenceError: path is not defined` en Vite. Verificar que `npm run dev` inicie sin errores.
-- **Commit 2 (Dev A):** 🎯 **[SIGUIENTE PASO INMEDIATO]**
+- **Commit 2 (Dev A):** ✅ **[COMPLETADO]**
   - **Mensaje:** `feat(api): configurar json-server mock y servicio base con fetch y async/await`
-  - **Archivos:** [`package.json`](file:///C:/Users/miran/OneDrive/Escritorio/prog/Desarrollo-Web/proyecto2026-Carosanti-Miranda/segunda-entrega/package.json), `src/api/gamesService.js`, [`src/data/db.json`](file:///C:/Users/miran/OneDrive/Escritorio/prog/Desarrollo-Web/proyecto2026-Carosanti-Miranda/segunda-entrega/src/data/db.json)
-  - **Detalle:** Agregar script `"server": "json-server --watch src/data/db.json --port 4000"`. Crear `src/api/gamesService.js` con funciones asíncronas `getGames()` y `getGameById(id)` manejando errores con `try/catch`.
+  - **Archivos:** [`package.json`](file:///C:/Users/miran/OneDrive/Escritorio/prog/Desarrollo-Web/proyecto2026-Carosanti-Miranda/segunda-entrega/package.json), `src/api/api.js`, [`src/data/db.json`](file:///C:/Users/miran/OneDrive/Escritorio/prog/Desarrollo-Web/proyecto2026-Carosanti-Miranda/segunda-entrega/src/data/db.json)
+  - **Detalle:** Agregar script `"server": "json-server --watch src/data/db.json --port 4000"`. Crear `src/api/api.js` con funciones asíncronas `getGames()` y `getGameById(id)` manejando errores con `try/catch`.
 
 #### 👤 Dev B (Lucca) — Arquitectura SCSS y Componente Reutilizable
 - **Commit 1 (Dev B):**
@@ -215,7 +205,7 @@ flowchart TD
 #### 👤 Dev A (Gregorio) — Soporte de Búsqueda en API y Navegación desde Categorías
 - **Commit 1 (Dev A):**
   - **Mensaje:** `feat(api): anadir utilidades de filtrado y ordenamiento en gamesService`
-  - **Archivos:** `src/api/gamesService.js`
+  - **Archivos:** `src/api/api.js`
   - **Detalle:** Extender `gamesService.js` para admitir búsqueda por texto y categoría, permitiendo consultas locales y remotas eficientes.
 - **Commit 2 (Dev A):**
   - **Mensaje:** `feat(home): vincular tarjetas de categorias con parametros de exploracion`
@@ -281,7 +271,7 @@ flowchart TD
   - **Detalle:** Añadir botón de favorito en la ficha del juego y opción en `<Card />` para marcar/desmarcar con reflejo instantáneo en el estado y en `localStorage`.
 - **Commit 2 (Dev A):**
   - **Mensaje:** `feat(api): implementar mutacion POST/PATCH para agregar resenas a db.json`
-  - **Archivos:** `src/api/gamesService.js`, [`src/pages/game.jsx`](file:///C:/Users/miran/OneDrive/Escritorio/prog/Desarrollo-Web/proyecto2026-Carosanti-Miranda/segunda-entrega/src/pages/game.jsx)
+  - **Archivos:** `src/api/api.js`, [`src/pages/game.jsx`](file:///C:/Users/miran/OneDrive/Escritorio/prog/Desarrollo-Web/proyecto2026-Carosanti-Miranda/segunda-entrega/src/pages/game.jsx)
   - **Detalle:** Implementar función `addReview(gameId, review)` usando `fetch` con método `PATCH`/`POST` para mutar el mock de `db.json`, cumpliendo con la exigencia de la rúbrica.
 
 ✅ **Checklist de Cierre del Día 5:**
@@ -327,7 +317,7 @@ flowchart TD
 | Día | Dev | Tipo | Mensaje del Commit | Archivos Principales | Estado |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Día 1** | Dev A | `fix` | `fix(vite): corregir resolucion de alias ESM y dependencias de node` | `vite.config.js` | ⏳ Pendiente |
-| **Día 1** | Dev A | `feat` | `feat(api): configurar json-server mock y servicio base con fetch y async/await` | `src/api/gamesService.js`, `package.json` | 🎯 **SIGUIENTE PASO** |
+| **Día 1** | Dev A | `feat` | `feat(api): configurar json-server mock y servicio base con fetch y async/await` | `src/api/api.js`, `package.json` | ✅ **COMPLETADO** |
 | **Día 1** | Dev B | `feat` | `feat(styles): instalar sass y estructurar parciales modulares base` | `src/styles/*.scss`, `package.json` | ⏳ Pendiente |
 | **Día 1** | Dev B | `feat` | `feat(components): implementar componente generico Card con children y soporte de props` | `src/components/card.jsx` | ✅ **Completado** |
 | **Día 2** | Dev A | `feat` | `feat(layout): implementar Header y Footer funcionales con NavLink y Outlet` | `src/components/header.jsx`, `Layout.jsx` | ✅ **Completado** |
@@ -336,7 +326,7 @@ flowchart TD
 | **Día 2** | Dev B | `style` | `style(home): maquetar hero dinámico, gradientes cyberpunk y grilla de tendencias` | `src/styles/_home.scss` | ⏳ Pendiente |
 | **Día 3** | Dev B | `feat` | `feat(explore): implementar filtros reactivos onChange y lectura de query params` | `src/pages/explore.jsx` | ⏳ Pendiente |
 | **Día 3** | Dev B | `feat` | `feat(explore): agregar validaciones en tiempo real con mensajes accesibles aria-live` | `src/pages/explore.jsx`, `_explore.scss` | ⏳ Pendiente |
-| **Día 3** | Dev A | `feat` | `feat(api): anadir utilidades de filtrado y ordenamiento en gamesService` | `src/api/gamesService.js` | ⏳ Pendiente |
+| **Día 3** | Dev A | `feat` | `feat(api): anadir utilidades de filtrado y ordenamiento en gamesService` | `src/api/api.js` | ⏳ Pendiente |
 | **Día 3** | Dev A | `feat` | `feat(home): vincular tarjetas de categorias con parametros de exploracion` | `src/pages/home.jsx` | ⏳ Pendiente |
 | **Día 4** | Dev A | `feat` | `feat(game): implementar ruta dinamica /juego/:id con useParams y carga de juego` | `src/pages/game.jsx`, `src/main.jsx` | ⏳ Pendiente |
 | **Día 4** | Dev A | `feat` | `feat(game): construir visor de galeria interactivo con selector de miniaturas y scroll` | `src/pages/game.jsx` | ⏳ Pendiente |
@@ -345,7 +335,7 @@ flowchart TD
 | **Día 5** | Dev B | `feat` | `feat(favourite): implementar pantalla de favoritos con persistencia en localStorage` | `src/pages/favourite.jsx` | ⏳ Pendiente |
 | **Día 5** | Dev B | `feat` | `feat(favourite): anadir panel lateral de estadisticas y estado vacio descriptivo` | `src/pages/favourite.jsx` | ⏳ Pendiente |
 | **Día 5** | Dev A | `feat` | `feat(game): integrar boton interactivo de favoritos con persistencia compartida` | `src/pages/game.jsx`, `card.jsx` | ⏳ Pendiente |
-| **Día 5** | Dev A | `feat` | `feat(api): implementar mutacion POST/PATCH para agregar resenas a db.json` | `src/api/gamesService.js` | ⏳ Pendiente |
+| **Día 5** | Dev A | `feat` | `feat(api): implementar mutacion POST/PATCH para agregar resenas a db.json` | `src/api/api.js` | ⏳ Pendiente |
 | **Día 6** | Dev B | `style` | `style(responsive): ajustar media queries para mobile y accesibilidad de contrastes` | `src/styles/*.scss` | ⏳ Pendiente |
 | **Día 6** | Dev B | `fix` | `fix(lint): depurar imports no utilizados, props y warnings de accesibilidad` | `src/components/*`, `src/pages/*` | ⏳ Pendiente |
 | **Día 6** | Dev A | `refactor` | `refactor(assets): verificar imagenes en public y assets e imports con alias` | `src/main.jsx`, `src/components/*` | ⏳ Pendiente |
@@ -410,7 +400,7 @@ flowchart TD
      ```json
      "server": "json-server --watch src/data/db.json --port 4000"
      ```
-2. **Servicio API en `src/api/gamesService.js`:**
+2. **Servicio API en `src/api/api.js`:**
    - Emplear el patrón de las clases prácticas (`Activities.jsx` y `Poke.jsx`):
      ```javascript
      const BASE_URL = "http://localhost:4000/";
@@ -468,7 +458,7 @@ flowchart TD
 #### Para Desarrollador A: `Home.jsx` y `Game.jsx`
 
 ##### 1. Refactorización de `src/pages/home.jsx`
-- Usar `useState` y `useEffect` para cargar los juegos consumiendo `getGames()` de `@api/gamesService`.
+- Usar `useState` y `useEffect` para cargar los juegos consumiendo `getGames()` de `@api/api.js`.
 - **Cálculo del Juego del Día:**
   - Migrar la función matemática de `principal.js`:
     ```javascript
