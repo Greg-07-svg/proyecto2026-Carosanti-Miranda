@@ -7,8 +7,8 @@
       "released": "2024",
       "developer": "FromSoftware",
       "store_url": "https://store.steampowered.com/app/1245620/ELDEN_RING/",
-      "cover_image": "primera-entrega/imagenes/elden-ring-logo.webp",
-      "background_image": "primera-entrega/imagenes/elden-ring-shadow-of-the-erdtree-backimage.webp",
+      "cover_image": "/src/assets/elden-ring-logo.webp",
+      "background_image": "/src/assets/elden-ring-shadow-of-the-erdtree-backimage.webp",
       "description": "Una expansión épica que lleva a los jugadores a explorar la Tierra de las Sombras, llena de nuevos jefes, armas y secretos oscuros por descubrir en un vasto mundo abierto.",
       "genres": [
         { "name": "RPG" },
@@ -22,17 +22,17 @@
       "media": [
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/paintings-elden-ring-shadow-of-the-erdtree.webp",
+          "url": "/src/assets/paintings-elden-ring-shadow-of-the-erdtree.webp",
           "title": "Artwork Principal"
         },
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/elden-ring-boss.webp",
+          "url": "/src/assets/elden-ring-boss.webp",
           "title": "Combate de Jefe"
         },
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/elden-ring-shadow-of-the-erdtree-exploracion.webp",
+          "url": "/src/assets/elden-ring-shadow-of-the-erdtree-exploracion.webp",
           "title": "Exploración"
         }
       ],
@@ -56,8 +56,8 @@
       "released": "2023",
       "developer": "CD Projekt Red",
       "store_url": "https://store.steampowered.com/app/1091500/Cyberpunk_2077/",
-      "cover_image": "primera-entrega/imagenes/cyberpunk-2077-logo.webp",
-      "background_image": "primera-entrega/imagenes/cyberpunk-2077-background.webp",
+      "cover_image": "/src/assets/cyberpunk-2077-logo.webp",
+      "background_image": "/src/assets/cyberpunk-2077-background.webp",
       "description": "Una aventura de espionaje y suspenso donde encarnas al mercenario V en una misión de alto riesgo dentro del peligroso distrito de Dogtown en Night City.",
       "genres": [
         { "name": "Acción" },
@@ -70,17 +70,17 @@
       "media": [
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/Cyberpunk-2077-Phantom-Liberty-ciudad.webp",
+          "url": "/src/assets/Cyberpunk-2077-Phantom-Liberty-ciudad.webp",
           "title": "Dogtown Night City"
         },
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/cyberpunk-1.webp",
+          "url": "/src/assets/cyberpunk-1.webp",
           "title": "parte_ciudad_1_día"
         },
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/cyberpunk-2.webp",
+          "url": "/src/assets/cyberpunk-2.webp",
           "title": "parte_ciudad_2_día"
         }
       ],
@@ -99,8 +99,8 @@
       "released": "2023",
       "developer": "Larian Studios",
       "store_url": "https://store.steampowered.com/app/1086940/Baldurs_Gate_3/",
-      "cover_image": "primera-entrega/imagenes/baldurs-gate-3-logo.webp",
-      "background_image": "primera-entrega/imagenes/Baldurs-gate-3-background.webp",
+      "cover_image": "/src/assets/baldurs-gate-3-logo.webp",
+      "background_image": "/src/assets/Baldurs-gate-3-background.webp",
       "description": "Un juego de rol de próxima generación ambientado en el mundo de Dungeons & Dragons, donde tus elecciones dan forma a una historia de amistad, traición y supervivencia.",
       "genres": [
         { "name": "RPG" },
@@ -114,17 +114,17 @@
       "media": [
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/campamento-baldurs-gate-3.webp",
+          "url": "/src/assets/campamento-baldurs-gate-3.webp",
           "title": "Campamento de Héroes"
         },
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/baldur-1.jpg",
+          "url": "/src/assets/baldur-1.jpg",
           "title": "personaje_demonio"
         },
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/baldur-2.jpg",
+          "url": "/src/assets/baldur-2.jpg",
           "title": "editor_personaje"
         }
       ],
@@ -143,8 +143,8 @@
       "released": "2017",
       "developer": "Team Cherry",
       "store_url": "https://store.steampowered.com/app/367520/Hollow_Knight/",
-      "cover_image": "primera-entrega/imagenes/holow-knight-cover.webp",
-      "background_image": "primera-entrega/imagenes/hollow-knight-background.webp",
+      "cover_image": "/src/assets/holow-knight-cover.webp",
+      "background_image": "/src/assets/hollow-knight-background.webp",
       "description": "Desciende al mundo de Hallownest, un reino en ruinas lleno de insectos y héroes. Explora cavernas retorcidas, combate criaturas corrompidas y forja tu propio camino.",
       "genres": [
         { "name": "Aventura" },
@@ -157,37 +157,37 @@
       "media": [
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/hollow-knight-dirtmouth.webp",
+          "url": "/src/assets/hollow-knight-dirtmouth.webp",
           "title": "Boca Sucia"
         },
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/hollow-1.jpg",
+          "url": "/src/assets/hollow-1.jpg",
           "title": "Grimm Battle"
         },
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/hollow-2.jpg",
+          "url": "/src/assets/hollow-2.jpg",
           "title": "Canales_Reales"
         },
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/hollow-3.jpg",
+          "url": "/src/assets/hollow-3.jpg",
           "title": "Sendero_Verde"
         },
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/hollow-4.jpg",
+          "url": "/src/assets/hollow-4.jpg",
           "title": "False_Knight_Boss"
         },
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/hollow-5.jpg",
+          "url": "/src/assets/hollow-5.jpg",
           "title": "Inventario"
         },
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/hollow-6.jpg",
+          "url": "/src/assets/hollow-6.jpg",
           "title": "La_Colmena"
         }
       ],
@@ -206,8 +206,8 @@
       "released": "2011",
       "developer": "Valve",
       "store_url": "https://store.steampowered.com/app/620/Portal_2/",
-      "cover_image": "primera-entrega/imagenes/portal2-cover.webp",
-      "background_image": "primera-entrega/imagenes/portal2-background.webp",
+      "cover_image": "/src/assets/portal2-cover.webp",
+      "background_image": "/src/assets/portal2-background.webp",
       "description": "Una hilarante y brillante aventura de acertijos en primera persona donde usas un dispositivo de portales para resolver intrincadas cámaras de pruebas.",
       "genres": [
         { "name": "Puzzle" }
@@ -218,17 +218,17 @@
       "media": [
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/portal2-camara-de-pruebas.webp",
+          "url": "/src/assets/portal2-camara-de-pruebas.webp",
           "title": "Cámara de Pruebas"
         },
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/portal_2-1.jpg",
+          "url": "/src/assets/portal_2-1.jpg",
           "title": "Exterior"
         },
         {
           "type": "image",
-          "url": "primera-entrega/imagenes/portal_2-2.jpg",
+          "url": "/src/assets/portal_2-2.jpg",
           "title": "pasillo"
         }
       ],
