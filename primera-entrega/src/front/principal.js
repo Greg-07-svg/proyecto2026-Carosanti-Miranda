@@ -515,7 +515,7 @@ esFavorito = (id) => {
 };
 
 /**
- * Agrega el juego a favoritos si no estaba, o lo saca si ya estaba.
+ * Agrega el juego a favoritos si no estaba y sino lo saca.
  * Solo toca el localStorage (no toca ningun boton), asi sirve para las dos paginas.
  * @method cambiarFavorito
  */
@@ -538,7 +538,7 @@ cambiarFavorito = (id) => {
 };
 
 /**
- * Boton ♡ de game.html: cambia el favorito y actualiza el boton
+ * Boton corazon de game.html: cambia el favorito y actualiza el boton
  * @method alternarFavorito
  */
 alternarFavorito = (id) => {
@@ -547,7 +547,7 @@ alternarFavorito = (id) => {
 };
 
 /**
- * Cambia el aspecto del boton ♡ de game.html segun si el juego esta o no en favoritos
+ * Cambia el aspecto del boton corazon de game.html segun si el juego esta o no en favoritos
  * @method actualizarBotonFavorito
  */
 actualizarBotonFavorito = (id) => {
@@ -562,8 +562,8 @@ actualizarBotonFavorito = (id) => {
 };
 
 /**
- * Corazon de una tarjeta en favourite.html: parte encendido (♥), al clickearlo
- * se apaga (♡) y se saca de favoritos; si se clickea de nuevo, se vuelve a agregar
+ * Corazon de una tarjeta en favourite.html: comienza "encendido" y al clickearlo
+ * se apaga y se saca de favoritos; si se clickea de nuevo, se vuelve a agregar
  * @method alternarFavoritoLista
  */
 alternarFavoritoLista = (id) => {
