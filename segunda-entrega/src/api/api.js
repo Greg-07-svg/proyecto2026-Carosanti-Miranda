@@ -38,65 +38,35 @@ export const getGameById = async (id) => {
 };
 
 /**
- * metodo que realiza el GET de la api hacia la lista de favoritos
- * @method getFavorites
+ * metodo de tipo POST hacia la api para subir una review sobre un juego
+ * @method addReview
+ * @param {number|string} gameId -- id del juego al que se le agrega la resena
+ * @param {object} review -- objeto de la resena con user, rating y comment
  */
-export const getFavorites = async () => {
+export const addReview = async (gameId, review) => {
   try {
-    const response = await fetch(`${API_URL}/favoritos`);
-    if (!response.ok) {
-      throw new Error(`Error al obtener los favoritos: ${response.status}`);
-    }
-    return await response.json();
-  } catch (error) {
-    console.error("Error en getFavorites:", error);
-    throw error;
-  }
-};
+    let targetId = gameId;
+    let reviewData = review;
 
-/**
- * metodo que realiza el POST de la api hacia la lista de favoritos (añade el objeto game entero)
- * @method addFavorite
- */
-export const addFavorite = async (game) => {
-  try {
-    const response = await fetch(`${API_URL}/favoritos`, {
+    if (typeof gameId === "object" && review === undefined) {
+      reviewData = gameId;
+      targetId = gameId.gameId || gameId.id;
+    }
+
+    const response = await fetch(`${API_URL}/juegos/${targetId}/reviews`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(game),
+      body: JSON.stringify(reviewData),
     });
 
     if (!response.ok) {
-      throw new Error(`Error al agregar favorito: ${response.status}`);
+      throw new Error(`Error al agregar la review: ${response.status}`);
     }
     return await response.json();
   } catch (error) {
-    console.error("Error en addFavorite:", error);
-    throw error;
-  }
-};
-
-/**
- * metodo que realiza el DELETE de la api hacia la lista de favoritos, borrando un juego por id
- * @method removeFavorite
- * @param {id} -- id del juego dentro de la base de datos (dentro de la lista de favoritos)
- */
-export const removeFavorite = async (id) => {
-  try {
-    const response = await fetch(`${API_URL}/favoritos/${id}`, {
-      method: "DELETE",
-    });
-
-    if (!response.ok) {
-      throw new Error(
-        `Error al eliminar favorito con id ${id}: ${response.status}`,
-      );
-    }
-    return await response.json();
-  } catch (error) {
-    console.error(`Error en removeFavorite para el id ${id}:`, error);
+    console.error(`Error en addReview para el juego ${gameId}:`, error);
     throw error;
   }
 };
