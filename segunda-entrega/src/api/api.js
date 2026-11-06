@@ -62,6 +62,22 @@ export const addReview = async (gameId, review) => {
     });
 
     if (!response.ok) {
+      // Fallback para json-server cuando las reviews estan dentro de cada juego
+      const gameRes = await fetch(`${API_URL}/juegos/${targetId}`);
+      if (gameRes.ok) {
+        const gameData = await gameRes.json();
+        const updatedReviews = [...(gameData.reviews || []), reviewData];
+        const patchRes = await fetch(`${API_URL}/juegos/${targetId}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ reviews: updatedReviews }),
+        });
+        if (patchRes.ok) {
+          return reviewData;
+        }
+      }
       throw new Error(`Error al agregar la review: ${response.status}`);
     }
     return await response.json();

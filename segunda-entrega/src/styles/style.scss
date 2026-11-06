@@ -1121,6 +1121,125 @@ img {
   }
 }
 
+#details-list {
+  p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.review {
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border-color);
+
+  &:first-child {
+    border-top: none;
+  }
+
+  span {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--distintivo-naranja);
+    margin-bottom: 0.25rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+}
+
+.add-review-form {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+
+  .add-review-title {
+    font-size: 0.95rem;
+    color: var(--distintivo-celeste);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .form-group {
+    margin-bottom: 0.65rem;
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.25rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      background: var(--backgorund_color_main);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.45rem 0.65rem;
+      color: var(--text-primary);
+      font-family: var(--font-main);
+      font-size: 0.85rem;
+      transition: var(--transition);
+
+      &:focus {
+        outline: none;
+        border-color: var(--distintivo-celeste);
+      }
+    }
+
+    textarea {
+      resize: vertical;
+    }
+  }
+
+  .btn-submit-review {
+    width: 100%;
+    @include accent-button(0.55rem 1rem);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+
+    &:hover:not(:disabled) {
+      filter: brightness(1.15);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  .review-status-msg {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.65rem;
+
+    &.success {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    &.error {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+  }
+}
+
 /* SIMILARES  */
 .similar {
   margin-top: 3rem;
