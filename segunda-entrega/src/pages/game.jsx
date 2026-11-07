@@ -4,6 +4,16 @@ import Card from "@components/card.jsx";
 import { getGameById, getGames, addReview } from "@api/api.js";
 import "@styles/style.scss";
 
+// Obtener lista de IDs favoritos desde localStorage de manera segura
+const obtenerFavoritos = () => {
+  try {
+    const guardados = localStorage.getItem("favoritos");
+    return guardados ? JSON.parse(guardados) : [];
+  } catch {
+    return [];
+  }
+};
+
 const Game = () => {
   const { id } = useParams();
 
@@ -31,16 +41,6 @@ const Game = () => {
   // Refs para scroll de carruseles
   const thumbsRef = useRef(null);
   const similarTrackRef = useRef(null);
-
-  // Obtener lista de IDs favoritos desde localStorage
-  const obtenerFavoritos = () => {
-    try {
-      const guardados = localStorage.getItem("favoritos");
-      return guardados ? JSON.parse(guardados) : [];
-    } catch {
-      return [];
-    }
-  };
 
   // Cargar información del juego y catálogo completo
   useEffect(() => {
@@ -106,7 +106,7 @@ const Game = () => {
     return () => {
       document.title = "FINDG";
     };
-  }, [game]);
+  }, [game?.name]);
 
   // Manejador para agregar o quitar de favoritos en localStorage
   const alternarFavorito = () => {
@@ -152,7 +152,7 @@ const Game = () => {
     }
   };
 
-  // Enviar reseña usando el método de la API
+  // Enviar reseña usando el método PATCH de la API
   const handleCrearReview = async (e) => {
     e.preventDefault();
 
@@ -207,7 +207,10 @@ const Game = () => {
 
   if (cargando) {
     return (
-      <div className="container" style={{ padding: "4rem 1.5rem", textAlign: "center" }}>
+      <div
+        className="container"
+        style={{ padding: "4rem 1.5rem", textAlign: "center" }}
+      >
         <h2 className="section-title">Cargando juego…</h2>
       </div>
     );
@@ -215,12 +218,19 @@ const Game = () => {
 
   if (error || !game) {
     return (
-      <div className="container" style={{ padding: "4rem 1.5rem", textAlign: "center" }}>
+      <div
+        className="container"
+        style={{ padding: "4rem 1.5rem", textAlign: "center" }}
+      >
         <h2 className="section-title">Juego no encontrado</h2>
         <p style={{ margin: "1rem 0", color: "var(--text-secondary)" }}>
           {error || "El videojuego solicitado no se encuentra disponible."}
         </p>
-        <Link to="/explorar" className="btn-primary" style={{ display: "inline-block" }}>
+        <Link
+          to="/explorar"
+          className="btn-primary"
+          style={{ display: "inline-block" }}
+        >
           ← Volver al explorador
         </Link>
       </div>
@@ -244,7 +254,9 @@ const Game = () => {
         className="banner"
         id="banner"
         style={{
-          "--banner": game.background_image ? `url('${game.background_image}')` : "none",
+          "--banner": game.background_image
+            ? `url('${game.background_image}')`
+            : "none",
         }}
       >
         <div className="container banner-container">
@@ -322,7 +334,7 @@ const Game = () => {
                   key={index}
                   src={medio.url}
                   alt={medio.title || `Captura ${index + 1}`}
-                  className={selectedMedia?.url === medio.url ? "active" : ""}
+                  className={`thumb ${selectedMedia?.url === medio.url ? "active" : ""}`}
                   onClick={() => setSelectedMedia(medio)}
                 />
               ))}
@@ -383,7 +395,12 @@ const Game = () => {
                   </div>
                 ))
               ) : (
-                <p style={{ color: "var(--text-secondary)", fontSize: "0.85rem" }}>
+                <p
+                  style={{
+                    color: "var(--text-secondary)",
+                    fontSize: "0.85rem",
+                  }}
+                >
                   Aún no hay reseñas. ¡Sé el primero en opinar!
                 </p>
               )}

@@ -38,7 +38,7 @@ export const getGameById = async (id) => {
 };
 
 /**
- * metodo de tipo POST hacia la api para subir una review sobre un juego
+ * metodo de tipo PATCH hacia la api para agregar una review a un juego
  * @method addReview
  * @param {number|string} gameId -- id del juego al que se le agrega la resena
  * @param {object} review -- objeto de la resena con user, rating y comment
@@ -53,31 +53,25 @@ export const addReview = async (gameId, review) => {
       targetId = gameId.gameId || gameId.id;
     }
 
-    const response = await fetch(`${API_URL}/juegos/${targetId}/reviews`, {
-      method: "POST",
+    // Obtenemos las resenas actuales del juego para no sobreescribirlas
+    const gameRes = await fetch(`${API_URL}/juegos/${targetId}`);
+    if (!gameRes.ok) {
+      throw new Error(`Error al obtener el juego ${targetId}: ${gameRes.status}`);
+    }
+    const gameData = await gameRes.json();
+    const currentReviews = Array.isArray(gameData.reviews) ? gameData.reviews : [];
+    const updatedReviews = [...currentReviews, reviewData];
+
+    // Enviamos el PATCH con el arreglo de resenas actualizado
+    const response = await fetch(`${API_URL}/juegos/${targetId}`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(reviewData),
+      body: JSON.stringify({ reviews: updatedReviews }),
     });
 
     if (!response.ok) {
-      // Fallback para json-server cuando las reviews estan dentro de cada juego
-      const gameRes = await fetch(`${API_URL}/juegos/${targetId}`);
-      if (gameRes.ok) {
-        const gameData = await gameRes.json();
-        const updatedReviews = [...(gameData.reviews || []), reviewData];
-        const patchRes = await fetch(`${API_URL}/juegos/${targetId}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ reviews: updatedReviews }),
-        });
-        if (patchRes.ok) {
-          return reviewData;
-        }
-      }
       throw new Error(`Error al agregar la review: ${response.status}`);
     }
     return await response.json();

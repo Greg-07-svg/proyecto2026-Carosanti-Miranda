@@ -876,6 +876,7 @@ img {
 
 /* BANNER - */
 .banner {
+  --banner: none;
   position: relative;
   min-height: 260px;
   @include flex($align: flex-end);
