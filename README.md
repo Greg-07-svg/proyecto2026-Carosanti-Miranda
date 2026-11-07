@@ -5,14 +5,14 @@
 ## Índice
 
 - [FINDG](#findg)
-  - [Índice](#índice)
-  - [Autores](#autores)
-    - [Descripción](#descripción)
-    - [Funcionalidades](#funcionalidades)
-    - [Tecnologías](#tecnologías)
-    - [Pasos de ejecución](#pasos-de-ejecución)
-    - [Estructura del proyecto](#estructura-del-proyecto)
-    - [Link de la página](#link-de-la-página)
+- [Índice](#índice)
+- [Autores](#autores)
+- [Descripción](#descripción)
+- [Funcionalidades](#funcionalidades)
+- [Tecnologías](#tecnologías)
+- [Pasos de ejecución](#pasos-de-ejecución)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Link de la página](#link-de-la-página)
 
 ---
 
@@ -49,17 +49,17 @@ FINDG es una página web planteada por **dos estudiantes** de Ingeniería en Inf
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
-| _tecnologia_         | _proposito_                                                                          |
-| -------------------- | ------------------------------------------------------------------------------------ |
-| **_React_**          | construcción de la interfaz con componentes y hooks (`useState`, `useEffect`, `useNavigate`) |
-| **_Vite_**           | herramienta con la que se creó el proyecto React y servidor de desarrollo            |
-| **_react-router-dom_** | enrutamiento entre páginas, usando `Outlet` para renderizar las rutas hijas        |
-| **_Sass (.scss)_**   | estilos de toda la aplicación, guardados en la carpeta `styles`                      |
-| **_json-server_**    | mock del servicio (`db.json`) para consultar los datos de los juegos                 |
-| **_fetch + async/await_** | consumo del servicio mockeado desde la carpeta `api`                            |
-| **_localStorage_**   | guardado de los juegos favoritos en el navegador                                     |
-| **_JavaScript_**     | lógica de la aplicación                                                              |
-| **_HTML_**           | estructura base (`index.html` de Vite y JSX)                                         |
+| _tecnologia_              | _proposito_                                                                                  |
+| ------------------------- | -------------------------------------------------------------------------------------------- |
+| **_React_**               | construcción de la interfaz con componentes y hooks (`useState`, `useEffect`, `useNavigate`) |
+| **_Vite_**                | herramienta con la que se creó el proyecto React y servidor de desarrollo                    |
+| **_react-router-dom_**    | enrutamiento entre páginas, usando `Outlet` para renderizar las rutas hijas                  |
+| **_Sass (.scss)_**        | estilos de toda la aplicación, guardados en la carpeta `styles`                              |
+| **_json-server_**         | mock del servicio (`db.json`) para consultar los datos de los juegos                         |
+| **_fetch + async/await_** | consumo del servicio mockeado desde la carpeta `api`                                         |
+| **_localStorage_**        | guardado de los juegos favoritos en el navegador                                             |
+| **_JavaScript_**          | lógica de la aplicación                                                                      |
+| **_HTML_**                | estructura base (`index.html` de Vite y JSX)                                                 |
 
 ---
 
@@ -88,7 +88,7 @@ FINDG es una página web planteada por **dos estudiantes** de Ingeniería en Inf
 4. Levantar el mock del servicio (`db.json`) en una terminal:
 
    ```bash
-   npm run mock
+   npm run server
    ```
 
 5. Levantar la aplicación en otra terminal:
@@ -101,31 +101,14 @@ FINDG es una página web planteada por **dos estudiantes** de Ingeniería en Inf
 
 **Scripts disponibles**
 
-| _comando_         | _que hace_                                         |
-| ----------------- | -------------------------------------------------- |
-| `npm run dev`     | inicia la aplicación en modo desarrollo            |
-| `npm run mock`    | inicia el servicio mockeado con `db.json`          |
-| `npm run build`   | genera la versión de producción                    |
-| `npm run preview` | previsualiza la versión de producción              |
+| _comando_         | _que hace_                                |
+| ----------------- | ----------------------------------------- |
+| `npm run dev`     | inicia la aplicación en modo desarrollo   |
+| `npm run server`  | inicia el servicio mockeado con `db.json` |
+| `npm run build`   | genera la versión de producción           |
+| `npm run preview` | previsualiza la versión de producción     |
 
-> Los dos servicios (`mock` y `dev`) tienen que estar corriendo al mismo tiempo para que la aplicación cargue los juegos.
-
----
-
-### Estructura del proyecto
-
-```
-src/
-├── api/          # funciones fetch (async/await) al servicio mockeado
-├── components/   # componentes reutilizables (Button, Card, Input, ...)
-├── pages/        # páginas: inicio, explorar, favoritos y detalle del juego
-├── styles/       # archivos .scss
-└── assets/       # imágenes importadas desde el código
-public/           # imágenes estáticas
-db.json           # datos del mock
-```
-
-Los imports se realizan con alias (por ejemplo `@components`, `@pages`, `@styles`, `@api`).
+> Los dos servicios (`server` y `dev`) tienen que estar corriendo al mismo tiempo para que la aplicación cargue los juegos.
 
 ---
 
