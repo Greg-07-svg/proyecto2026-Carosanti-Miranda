@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Card from "@components/card.jsx";
 import { getGames } from "@api/api.js";
-import "@styles/style.scss";
+import { CATEGORIAS } from "../utils/categorias.js";
 
 const FILTROS_INICIALES = {
   search: "",
@@ -11,31 +12,25 @@ const FILTROS_INICIALES = {
 };
 
 const Explore = () => {
+  const location = useLocation();
   const [games, setGames] = useState([]);
-  const [filteredGames, setFilteredGames] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [filters, setFilters] = useState(FILTROS_INICIALES);
-  const [errorMsg, setErrorMsg] = useState("");
 
-  // Carga inicial y lectura de categoria desde localStorage
+  // Inicializar filtros leyendo directamente la categoría desde localStorage
+  const [filters, setFilters] = useState(() => {
+    const categoriaGuardada = localStorage.getItem("filtroCategoria") || "";
+    return {
+      ...FILTROS_INICIALES,
+      category: categoriaGuardada,
+    };
+  });
+
+  // Carga de juegos desde la API
   useEffect(() => {
     const fetchGames = async () => {
       try {
         const data = await getGames();
         setGames(data);
-
-        const categoriaPrevia = localStorage.getItem("filtroCategoria") || "";
-        if (categoriaPrevia) {
-          localStorage.removeItem("filtroCategoria");
-          const nuevosFiltros = {
-            ...FILTROS_INICIALES,
-            category: categoriaPrevia,
-          };
-          setFilters(nuevosFiltros);
-          aplicarFiltros(nuevosFiltros, data);
-        } else {
-          setFilteredGames(data);
-        }
       } catch (error) {
         console.error("Error al cargar juegos en explorar:", error);
       } finally {
@@ -46,73 +41,90 @@ const Explore = () => {
     fetchGames();
   }, []);
 
-  // Funcion de filtrado
-  const aplicarFiltros = (filtrosActuales = filters, listaBase = games) => {
-    let resultado = [...listaBase];
-    let mensajeError = "";
+  // Sincronizar filtro si se navega desde Home u otra ruta con nueva categoría en localStorage
+  useEffect(() => {
+    const categoriaGuardada = localStorage.getItem("filtroCategoria") || "";
+    setFilters((prev) => {
+      if (prev.category !== categoriaGuardada) {
+        return { ...prev, category: categoriaGuardada };
+      }
+      return prev;
+    });
+  }, [location]);
 
+  // Filtrado directo en cada render a partir de games y filters
+  const filteredGames = games.filter((game) => {
     // Filtro por nombre
-    if (filtrosActuales.search.trim() !== "") {
-      const termino = filtrosActuales.search.trim().toLowerCase();
-      resultado = resultado.filter((g) =>
-        g.name.toLowerCase().includes(termino),
-      );
-
-      if (resultado.length === 0) {
-        mensajeError = "No se encontraron juegos con ese nombre.";
+    if (filters.search.trim() !== "") {
+      const termino = filters.search.trim().toLowerCase();
+      if (!game.name.toLowerCase().includes(termino)) {
+        return false;
       }
     }
 
-    // Filtro por categoria
-    if (filtrosActuales.category !== "") {
-      resultado = resultado.filter((g) =>
-        g.genres?.some(
-          (gen) =>
-            gen.name.toLowerCase() === filtrosActuales.category.toLowerCase(),
-        ),
+    // Filtro por categoría
+    if (filters.category !== "") {
+      const coincide = game.genres?.some(
+        (gen) => gen.name.toLowerCase() === filters.category.toLowerCase(),
       );
+      if (!coincide) {
+        return false;
+      }
     }
 
-    // Filtro por rating minimo
-    if (Number(filtrosActuales.rating) > 0) {
-      resultado = resultado.filter(
-        (g) => g.rating >= Number(filtrosActuales.rating),
-      );
+    // Filtro por rating mínimo
+    if (Number(filters.rating) > 0) {
+      if (game.rating < Number(filters.rating)) {
+        return false;
+      }
     }
 
-    // Filtro por ano de lanzamiento y validacion
-    if (filtrosActuales.year !== "") {
-      const yearNum = parseInt(filtrosActuales.year, 10);
+    // Filtro por año de lanzamiento
+    if (filters.year !== "") {
+      const yearNum = parseInt(filters.year, 10);
       if (yearNum >= 1980 && yearNum <= 2026) {
-        resultado = resultado.filter(
-          (g) => String(g.released) === String(yearNum),
-        );
-      } else {
-        mensajeError = "El año de lanzamiento debe estar entre 1980 y 2026.";
+        if (String(game.released) !== String(yearNum)) {
+          return false;
+        }
       }
     }
 
-    setErrorMsg(mensajeError);
-    setFilteredGames(resultado);
-  };
+    return true;
+  });
 
-  // Manejador de cambios
+  // Mensaje de error / validación calculado directamente
+  let errorMsg = "";
+  if (filters.year !== "") {
+    const yearNum = parseInt(filters.year, 10);
+    if (yearNum < 1980 || yearNum > 2026) {
+      errorMsg = "El año de lanzamiento debe estar entre 1980 y 2026.";
+    }
+  }
+  if (filters.search.trim() !== "" && filteredGames.length === 0 && !errorMsg) {
+    errorMsg = "No se encontraron juegos con ese nombre.";
+  }
+
+  // Manejador de cambios reactivo que además persiste la categoría en localStorage
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const nuevosFiltros = { ...filters, [name]: value };
-    setFilters(nuevosFiltros);
-    aplicarFiltros(nuevosFiltros);
+    if (name === "category") {
+      if (value) {
+        localStorage.setItem("filtroCategoria", value);
+      } else {
+        localStorage.removeItem("filtroCategoria");
+      }
+    }
+    setFilters((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Manejador para reiniciar filtros
+  // Manejador para reiniciar filtros y limpiar la categoría guardada
   const handleReset = () => {
+    localStorage.removeItem("filtroCategoria");
     setFilters(FILTROS_INICIALES);
-    setErrorMsg("");
-    setFilteredGames(games);
   };
 
   return (
-    <main className="main-content explore-layout">
+    <div className="explore-layout">
       <aside className="filters-sidebar">
         <form
           id="filters-form"
@@ -141,14 +153,11 @@ const Explore = () => {
               onChange={handleChange}
             >
               <option value="">Todos los géneros</option>
-              <option value="Acción">Acción</option>
-              <option value="Aventura">Aventura</option>
-              <option value="RPG">RPG</option>
-              <option value="Estrategia">Estrategia</option>
-              <option value="Deportes">Deportes</option>
-              <option value="Shooter">Shooter</option>
-              <option value="Carreras">Carreras</option>
-              <option value="Puzzle">Puzzle</option>
+              {CATEGORIAS.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat}
+                </option>
+              ))}
             </select>
           </fieldset>
 
@@ -225,7 +234,7 @@ const Explore = () => {
           )}
         </div>
       </section>
-    </main>
+    </div>
   );
 };
 

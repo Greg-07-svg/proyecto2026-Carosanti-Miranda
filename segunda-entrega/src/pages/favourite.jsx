@@ -1,28 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getGames } from "@api/api.js";
-import "@styles/style.scss";
+import { obtenerFavoritos, alternarFavorito } from "../utils/favoritos.js";
+import { obtenerImagenJuego } from "../utils/imagenes.js";
 
 const Favourite = () => {
   const [juegosMostrados, setJuegosMostrados] = useState([]);
   const [favIds, setFavIds] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
-
-  // Obtener array de IDs de favoritos desde localStorage
-  const obtenerFavoritosStorage = () => {
-    try {
-      const guardados = localStorage.getItem("favoritos");
-      if (!guardados) return [];
-      const parsed = JSON.parse(guardados);
-      return parsed.map((item) =>
-        typeof item === "object" && item !== null ? String(item.id) : String(item),
-      );
-    } catch (err) {
-      console.error("Error al leer favoritos de localStorage:", err);
-      return [];
-    }
-  };
 
   // Cargar catálogo de juegos desde la API y sincronizar favoritos
   useEffect(() => {
@@ -35,13 +21,13 @@ const Favourite = () => {
       try {
         const catalogo = await getGames();
         if (isMounted) {
-          const idsGuardados = obtenerFavoritosStorage();
+          const idsGuardados = obtenerFavoritos();
           setFavIds(idsGuardados);
 
           if (Array.isArray(catalogo)) {
             // Filtrar los juegos que el usuario tiene guardados en favoritos
             const guardados = catalogo.filter((j) =>
-              idsGuardados.includes(String(j.id)),
+              idsGuardados.some((id) => String(id) === String(j.id)),
             );
             setJuegosMostrados(guardados);
           }
@@ -73,30 +59,15 @@ const Favourite = () => {
     };
   }, []);
 
-  // Alternar favorito de un juego específico:
-  // Al clickearlo se apaga y se saca de localStorage; si se vuelve a clickear, se vuelve a agregar
+  // Alternar favorito de un juego específico usando el utilitario compartido
   const alternarFavoritoLista = (juegoId) => {
-    const idStr = String(juegoId);
-    const yaEsFav = favIds.includes(idStr);
-
-    let nuevosFavs;
-    if (yaEsFav) {
-      nuevosFavs = favIds.filter((id) => id !== idStr);
-    } else {
-      nuevosFavs = [...favIds, idStr];
-    }
-
-    try {
-      localStorage.setItem("favoritos", JSON.stringify(nuevosFavs));
-      setFavIds(nuevosFavs);
-    } catch (err) {
-      console.error("Error al actualizar favoritos en localStorage:", err);
-    }
+    const nuevosFavs = alternarFavorito(juegoId);
+    setFavIds(nuevosFavs);
   };
 
   // Calcular cantidad y promedio de rating entre los juegos actualmente marcados
   const juegosActivos = juegosMostrados.filter((j) =>
-    favIds.includes(String(j.id)),
+    favIds.some((id) => String(id) === String(j.id)),
   );
   const cantidad = juegosActivos.length;
   const sumaRating = juegosActivos.reduce(
@@ -139,13 +110,13 @@ const Favourite = () => {
             </p>
           ) : (
             juegosMostrados.map((juego) => {
-              const esFav = favIds.includes(String(juego.id));
+              const esFav = favIds.some((id) => String(id) === String(juego.id));
 
               return (
                 <div className="fav-card" key={juego.id}>
                   <img
                     className="fav-img"
-                    src={juego.background_image || juego.cover_image}
+                    src={obtenerImagenJuego(juego)}
                     alt={juego.name}
                   />
 

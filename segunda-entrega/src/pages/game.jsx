@@ -2,7 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import Card from "@components/card.jsx";
 import { getGameById, getGames, addReview } from "@api/api.js";
-import "@styles/style.scss";
+import {
+  obtenerFavoritos,
+  alternarFavorito as alternarFavoritoStorage,
+} from "../utils/favoritos.js";
 
 // Obtener lista de IDs favoritos desde localStorage de manera segura
 const obtenerFavoritos = () => {
@@ -67,9 +70,7 @@ const Game = () => {
           // Verificar si ya está en favoritos
           const favoritos = obtenerFavoritos();
           const yaEsFavorito = favoritos.some(
-            (favId) =>
-              String(favId) === String(id) ||
-              (typeof favId === "object" && String(favId.id) === String(id)),
+            (favId) => String(favId) === String(id),
           );
           setEsFav(yaEsFavorito);
         }
@@ -108,34 +109,14 @@ const Game = () => {
     };
   }, [game?.name]);
 
-  // Manejador para agregar o quitar de favoritos en localStorage
+  // Manejador para agregar o quitar de favoritos en localStorage usando el utilitario compartido
   const alternarFavorito = () => {
     if (!game) return;
-
-    try {
-      const favoritos = obtenerFavoritos();
-      const yaEsFavorito = favoritos.some(
-        (favId) =>
-          String(favId) === String(game.id) ||
-          (typeof favId === "object" && String(favId.id) === String(game.id)),
-      );
-
-      let nuevosFavoritos;
-      if (yaEsFavorito) {
-        nuevosFavoritos = favoritos.filter(
-          (favId) =>
-            String(favId) !== String(game.id) &&
-            (typeof favId !== "object" || String(favId.id) !== String(game.id)),
-        );
-      } else {
-        nuevosFavoritos = [...favoritos, game.id];
-      }
-
-      localStorage.setItem("favoritos", JSON.stringify(nuevosFavoritos));
-      setEsFav(!yaEsFavorito);
-    } catch (err) {
-      console.error("Error al alternar favoritos en localStorage:", err);
-    }
+    const nuevosFavoritos = alternarFavoritoStorage(game.id);
+    const yaEsFavorito = nuevosFavoritos.some(
+      (favId) => String(favId) === String(game.id),
+    );
+    setEsFav(yaEsFavorito);
   };
 
   // Desplazamiento horizontal de miniaturas
