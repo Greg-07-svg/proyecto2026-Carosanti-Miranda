@@ -1,7 +1,7 @@
 {
   "juegos": [
     {
-      "id": 101,
+      "id": "101",
       "name": "Elden Ring: Shadow of the Erdtree",
       "rating": 4.9,
       "released": "2024",
@@ -11,13 +11,23 @@
       "background_image": "/src/assets/elden-ring-shadow-of-the-erdtree-backimage.webp",
       "description": "Una expansión épica que lleva a los jugadores a explorar la Tierra de las Sombras, llena de nuevos jefes, armas y secretos oscuros por descubrir en un vasto mundo abierto.",
       "genres": [
-        { "name": "RPG" },
-        { "name": "Acción" }
+        {
+          "name": "RPG"
+        },
+        {
+          "name": "Acción"
+        }
       ],
       "platforms": [
-        { "name": "PC" },
-        { "name": "PlayStation 5" },
-        { "name": "Xbox Series X" }
+        {
+          "name": "PC"
+        },
+        {
+          "name": "PlayStation 5"
+        },
+        {
+          "name": "Xbox Series X"
+        }
       ],
       "media": [
         {
@@ -46,11 +56,16 @@
           "user": "GamerPro99",
           "rating": 4.8,
           "comment": "El diseño del mundo y los nuevos jefes superaron mis expectativas."
+        },
+        {
+          "user": "greg",
+          "rating": 5,
+          "comment": "me gusto mucho !"
         }
       ]
     },
     {
-      "id": 102,
+      "id": "102",
       "name": "Cyberpunk 2077: Phantom Liberty",
       "rating": 4.8,
       "released": "2023",
@@ -60,12 +75,20 @@
       "background_image": "/src/assets/cyberpunk-2077-background.webp",
       "description": "Una aventura de espionaje y suspenso donde encarnas al mercenario V en una misión de alto riesgo dentro del peligroso distrito de Dogtown en Night City.",
       "genres": [
-        { "name": "Acción" },
-        { "name": "RPG" }
+        {
+          "name": "Acción"
+        },
+        {
+          "name": "RPG"
+        }
       ],
       "platforms": [
-        { "name": "PC" },
-        { "name": "PlayStation 5" }
+        {
+          "name": "PC"
+        },
+        {
+          "name": "PlayStation 5"
+        }
       ],
       "media": [
         {
@@ -93,7 +116,7 @@
       ]
     },
     {
-      "id": 103,
+      "id": "103",
       "name": "Baldur's Gate 3",
       "rating": 4.9,
       "released": "2023",
@@ -103,13 +126,23 @@
       "background_image": "/src/assets/Baldurs-gate-3-background.webp",
       "description": "Un juego de rol de próxima generación ambientado en el mundo de Dungeons & Dragons, donde tus elecciones dan forma a una historia de amistad, traición y supervivencia.",
       "genres": [
-        { "name": "RPG" },
-        { "name": "Estrategia" }
+        {
+          "name": "RPG"
+        },
+        {
+          "name": "Estrategia"
+        }
       ],
       "platforms": [
-        { "name": "PC" },
-        { "name": "PlayStation 5" },
-        { "name": "Xbox Series X" }
+        {
+          "name": "PC"
+        },
+        {
+          "name": "PlayStation 5"
+        },
+        {
+          "name": "Xbox Series X"
+        }
       ],
       "media": [
         {
@@ -137,7 +170,7 @@
       ]
     },
     {
-      "id": 104,
+      "id": "104",
       "name": "Hollow Knight",
       "rating": 4.7,
       "released": "2017",
@@ -147,12 +180,20 @@
       "background_image": "/src/assets/hollow-knight-background.webp",
       "description": "Desciende al mundo de Hallownest, un reino en ruinas lleno de insectos y héroes. Explora cavernas retorcidas, combate criaturas corrompidas y forja tu propio camino.",
       "genres": [
-        { "name": "Aventura" },
-        { "name": "Acción" }
+        {
+          "name": "Aventura"
+        },
+        {
+          "name": "Acción"
+        }
       ],
       "platforms": [
-        { "name": "PC" },
-        { "name": "Nintendo Switch" }
+        {
+          "name": "PC"
+        },
+        {
+          "name": "Nintendo Switch"
+        }
       ],
       "media": [
         {
@@ -200,7 +241,7 @@
       ]
     },
     {
-      "id": 105,
+      "id": "105",
       "name": "Portal 2",
       "rating": 4.9,
       "released": "2011",
@@ -210,10 +251,14 @@
       "background_image": "/src/assets/portal2-background.webp",
       "description": "Una hilarante y brillante aventura de acertijos en primera persona donde usas un dispositivo de portales para resolver intrincadas cámaras de pruebas.",
       "genres": [
-        { "name": "Puzzle" }
+        {
+          "name": "Puzzle"
+        }
       ],
       "platforms": [
-        { "name": "PC" }
+        {
+          "name": "PC"
+        }
       ],
       "media": [
         {
@@ -240,5 +285,6 @@
         }
       ]
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

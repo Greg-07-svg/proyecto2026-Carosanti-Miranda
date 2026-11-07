@@ -1,24 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getGames } from "@api/api.js";
-import "@styles/style.scss";
-
-// Obtener array de IDs de favoritos desde localStorage normalizados como números
-const obtenerFavoritosStorage = () => {
-  try {
-    const guardados = localStorage.getItem("favoritos");
-    if (!guardados) return [];
-    const parsed = JSON.parse(guardados);
-    return parsed.map((item) => {
-      const rawId = typeof item === "object" && item !== null ? item.id : item;
-      const num = Number(rawId);
-      return !isNaN(num) ? num : rawId;
-    });
-  } catch (err) {
-    console.error("Error al leer favoritos de localStorage:", err);
-    return [];
-  }
-};
+import { obtenerFavoritos, alternarFavorito } from "../utils/favoritos.js";
+import { obtenerImagenJuego } from "../utils/imagenes.js";
 
 const Favourite = () => {
   const [juegosMostrados, setJuegosMostrados] = useState([]);
@@ -37,7 +21,7 @@ const Favourite = () => {
       try {
         const catalogo = await getGames();
         if (isMounted) {
-          const idsGuardados = obtenerFavoritosStorage();
+          const idsGuardados = obtenerFavoritos();
           setFavIds(idsGuardados);
 
           if (Array.isArray(catalogo)) {
@@ -75,27 +59,10 @@ const Favourite = () => {
     };
   }, []);
 
-  // Alternar favorito de un juego específico:
-  // Al clickearlo se apaga y se saca de localStorage; si se vuelve a clickear, se vuelve a agregar
+  // Alternar favorito de un juego específico usando el utilitario compartido
   const alternarFavoritoLista = (juegoId) => {
-    const yaEsFav = favIds.some((id) => String(id) === String(juegoId));
-
-    let nuevosFavs;
-    if (yaEsFav) {
-      nuevosFavs = favIds.filter((id) => String(id) !== String(juegoId));
-    } else {
-      const idNormalizado = !isNaN(Number(juegoId))
-        ? Number(juegoId)
-        : juegoId;
-      nuevosFavs = [...favIds, idNormalizado];
-    }
-
-    try {
-      localStorage.setItem("favoritos", JSON.stringify(nuevosFavs));
-      setFavIds(nuevosFavs);
-    } catch (err) {
-      console.error("Error al actualizar favoritos en localStorage:", err);
-    }
+    const nuevosFavs = alternarFavorito(juegoId);
+    setFavIds(nuevosFavs);
   };
 
   // Calcular cantidad y promedio de rating entre los juegos actualmente marcados
@@ -149,7 +116,7 @@ const Favourite = () => {
                 <div className="fav-card" key={juego.id}>
                   <img
                     className="fav-img"
-                    src={juego.background_image || juego.cover_image}
+                    src={obtenerImagenJuego(juego)}
                     alt={juego.name}
                   />
 

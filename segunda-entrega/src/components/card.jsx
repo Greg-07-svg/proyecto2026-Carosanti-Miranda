@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { obtenerImagenJuego } from "../utils/imagenes.js";
 
 const Card = ({ game }) => {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ const Card = ({ game }) => {
       onClick={() => navigate(`/juego/${game.id}`)}
     >
       <img
-        src={game.background_image || game.cover_image}
+        src={obtenerImagenJuego(game)}
         alt={game.name}
         className="skeleton-img"
       />

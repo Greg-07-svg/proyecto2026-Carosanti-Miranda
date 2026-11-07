@@ -3,10 +3,7 @@ import { Link } from "react-router-dom";
 import Card from "@components/card.jsx";
 import { getGames } from "@api/api.js";
 import { juego_del_dia } from "../utils/juegodeldia.js";
-import "@styles/style.scss";
-
-// Categorias disponibles para explorar
-const CATEGORIAS = ["Acción", "Aventura", "RPG", "Estrategia", "Deportes", "Puzzle"];
+import { CATEGORIAS_HOME } from "../utils/categorias.js";
 
 const Home = () => {
   const [juegoDelDia, setJuegoDelDia] = useState(null);
@@ -96,11 +93,12 @@ const Home = () => {
         <h2 className="section-title">Categorías</h2>
 
         <div className="categories-grid">
-          {CATEGORIAS.map((cat) => (
+          {CATEGORIAS_HOME.map((cat) => (
             <Link
               key={cat}
-              to={`/explorar?categoria=${encodeURIComponent(cat)}`}
+              to="/explorar"
               className="category-card"
+              onClick={() => localStorage.setItem("filtroCategoria", cat)}
             >
               {cat}
             </Link>

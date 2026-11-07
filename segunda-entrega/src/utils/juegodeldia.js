@@ -19,5 +19,4 @@ export const juego_del_dia = (juegos) => {
   return juegoSeleccionado?.id ?? null;
 };
 
-export const getJuegoDelDiaId = juego_del_dia;
 export default juego_del_dia;
