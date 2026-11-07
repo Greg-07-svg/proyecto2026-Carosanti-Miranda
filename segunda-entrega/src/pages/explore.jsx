@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import Card from "@components/card.jsx";
 import { getGames } from "@api/api.js";
-import { CATEGORIAS } from "../utils/categorias.js";
+import { CATEGORIAS } from "@utils/categorias.js";
 
 const FILTROS_INICIALES = {
   search: "",
@@ -12,7 +11,6 @@ const FILTROS_INICIALES = {
 };
 
 const Explore = () => {
-  const location = useLocation();
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -40,17 +38,6 @@ const Explore = () => {
 
     fetchGames();
   }, []);
-
-  // Sincronizar filtro si se navega desde Home u otra ruta con nueva categoría en localStorage
-  useEffect(() => {
-    const categoriaGuardada = localStorage.getItem("filtroCategoria") || "";
-    setFilters((prev) => {
-      if (prev.category !== categoriaGuardada) {
-        return { ...prev, category: categoriaGuardada };
-      }
-      return prev;
-    });
-  }, [location]);
 
   // Filtrado directo en cada render a partir de games y filters
   const filteredGames = games.filter((game) => {

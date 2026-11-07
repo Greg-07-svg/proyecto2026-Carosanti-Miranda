@@ -5,17 +5,7 @@ import { getGameById, getGames, addReview } from "@api/api.js";
 import {
   obtenerFavoritos,
   alternarFavorito as alternarFavoritoStorage,
-} from "../utils/favoritos.js";
-
-// Obtener lista de IDs favoritos desde localStorage de manera segura
-const obtenerFavoritos = () => {
-  try {
-    const guardados = localStorage.getItem("favoritos");
-    return guardados ? JSON.parse(guardados) : [];
-  } catch {
-    return [];
-  }
-};
+} from "@utils/favoritos.js";
 
 const Game = () => {
   const { id } = useParams();
