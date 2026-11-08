@@ -178,10 +178,7 @@ const Game = () => {
 
   if (cargando) {
     return (
-      <div
-        className="container"
-        style={{ padding: "4rem 1.5rem", textAlign: "center" }}
-      >
+      <div className="container game-status">
         <h2 className="section-title">Cargando juego…</h2>
       </div>
     );
@@ -189,19 +186,12 @@ const Game = () => {
 
   if (error || !game) {
     return (
-      <div
-        className="container"
-        style={{ padding: "4rem 1.5rem", textAlign: "center" }}
-      >
+      <div className="container game-status">
         <h2 className="section-title">Juego no encontrado</h2>
-        <p style={{ margin: "1rem 0", color: "var(--text-secondary)" }}>
+        <p className="game-status-msg">
           {error || "El videojuego solicitado no se encuentra disponible."}
         </p>
-        <Link
-          to="/explorar"
-          className="btn-primary"
-          style={{ display: "inline-block" }}
-        >
+        <Link to="/explorar" className="btn-primary">
           ← Volver al explorador
         </Link>
       </div>
@@ -221,15 +211,7 @@ const Game = () => {
   return (
     <div>
       {/* BANNER: imagen de fondo (horizontal) con el nombre encima */}
-      <section
-        className="banner"
-        id="banner"
-        style={{
-          "--banner": game.background_image
-            ? `url('${game.background_image}')`
-            : "none",
-        }}
-      >
+      <section className="banner" id="banner">
         <div className="container banner-container">
           {/* PORTADA: imagen independiente del banner */}
           <img
@@ -366,12 +348,7 @@ const Game = () => {
                   </div>
                 ))
               ) : (
-                <p
-                  style={{
-                    color: "var(--text-secondary)",
-                    fontSize: "0.85rem",
-                  }}
-                >
+                <p className="reviews-empty">
                   Aún no hay reseñas. ¡Sé el primero en opinar!
                 </p>
               )}
@@ -473,7 +450,7 @@ const Game = () => {
               <Card key={similarGame.id} game={similarGame} />
             ))
           ) : (
-            <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>
+            <p className="similar-empty">
               No se encontraron juegos similares para este título.
             </p>
           )}

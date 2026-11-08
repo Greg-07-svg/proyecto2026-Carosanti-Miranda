@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { obtenerImagenJuego } from "../utils/imagenes.js";
+import { obtenerImagenJuego } from "@utils/imagenes.js";
 
 const Card = ({ game }) => {
   const navigate = useNavigate();
