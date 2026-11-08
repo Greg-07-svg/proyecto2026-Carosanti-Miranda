@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Card from "@components/card.jsx";
 import { getGames } from "@api/api.js";
-import { juego_del_dia } from "../utils/juegodeldia.js";
-import { CATEGORIAS_HOME } from "../utils/categorias.js";
+import { juego_del_dia } from "@utils/juegodeldia.js";
+import { CATEGORIAS_HOME } from "@utils/categorias.js";
 
 const Home = () => {
   const [juegoDelDia, setJuegoDelDia] = useState(null);

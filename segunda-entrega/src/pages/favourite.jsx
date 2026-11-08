@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getGames } from "@api/api.js";
-import { obtenerFavoritos, alternarFavorito } from "../utils/favoritos.js";
-import { obtenerImagenJuego } from "../utils/imagenes.js";
+import { obtenerFavoritos, alternarFavorito } from "@utils/favoritos.js";
+import { obtenerImagenJuego } from "@utils/imagenes.js";
 
 const Favourite = () => {
   const [juegosMostrados, setJuegosMostrados] = useState([]);
@@ -110,7 +110,9 @@ const Favourite = () => {
             </p>
           ) : (
             juegosMostrados.map((juego) => {
-              const esFav = favIds.some((id) => String(id) === String(juego.id));
+              const esFav = favIds.some(
+                (id) => String(id) === String(juego.id),
+              );
 
               return (
                 <div className="fav-card" key={juego.id}>
