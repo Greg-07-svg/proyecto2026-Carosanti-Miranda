@@ -22,6 +22,15 @@ $transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 $white-soft: rgba(#fff, 0.08);
 $white-faint: rgba(#fff, 0.05);
 
+// espaciados y tipografias para estados y mensajes
+$game-status-padding: 4rem 1.5rem;
+$font-size-small: 0.85rem;
+$font-size-muted: 0.9rem;
+
+
+// imagenes de fondo para hero y banner
+$hero-bg: url("../assets/cyberpunk-2077-background.webp");
+$banner-bg: url("../assets/elden-ring-shadow-of-the-erdtree-backimage.webp");
 // breakpoints (los usan las media queries)
 $bp-tablet: 768px;
 $bp-explore: 860px;
@@ -344,9 +353,7 @@ img {
 }
 
 #hero {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: var(--bg-surface) $hero-bg center / cover no-repeat;
 }
 
 .hero-overlay {
@@ -874,14 +881,34 @@ img {
 
 /* game.html*/
 
+/* Estados de carga y error en juego */
+.game-status {
+  padding: $game-status-padding;
+  text-align: center;
+
+  .game-status-msg {
+    margin: 1rem 0;
+    color: var(--text-secondary);
+  }
+
+  .btn-primary {
+    display: inline-block;
+    @include accent-button(0.7rem 1.25rem);
+    white-space: nowrap;
+
+    &:hover {
+      filter: brightness(1.15);
+    }
+  }
+}
+
 /* BANNER - */
 .banner {
-  --banner: none;
   position: relative;
   min-height: 260px;
   @include flex($align: flex-end);
   padding: 2rem 0;
-  background: var(--bg-surface) var(--banner, none) center / cover no-repeat;
+  background: var(--bg-surface) $banner-bg center / cover no-repeat;
 
   &::before {
     /* oscurece la imagen y la funde con el fondo de la pagina */
@@ -1134,6 +1161,11 @@ img {
   }
 }
 
+.reviews-empty {
+  color: var(--text-secondary);
+  font-size: $font-size-small;
+}
+
 .review {
   padding: 0.75rem 0;
   border-top: 1px solid var(--border-color);
@@ -1270,6 +1302,11 @@ img {
   scroll-snap-type: x proximity;
   scrollbar-width: none;
   @include no-scrollbar;
+
+  .similar-empty {
+    color: var(--text-secondary);
+    font-size: $font-size-muted;
+  }
 }
 
 .sim-card {
@@ -1350,3 +1387,4 @@ img {
     flex-basis: 75%;
   }
 }
+

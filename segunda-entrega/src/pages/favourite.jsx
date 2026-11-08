@@ -103,7 +103,6 @@ const Favourite = () => {
               <Link
                 to="/explorar"
                 className="btn-primary"
-                style={{ display: "inline-block", marginTop: "1rem" }}
               >
                 Explorá juegos
               </Link>

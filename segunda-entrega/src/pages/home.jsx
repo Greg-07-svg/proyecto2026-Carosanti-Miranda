@@ -37,18 +37,10 @@ const Home = () => {
     cargarDatos();
   }, []);
 
-  const heroBg = juegoDelDia?.background_image
-    ? `linear-gradient(180deg, rgba(11, 15, 23, 0.5) 0%, rgba(11, 15, 23, 0.95) 100%), url('${juegoDelDia.background_image}')`
-    : undefined;
-
   return (
     <div>
       {/* Seccion Hero con el Juego del Dia */}
-      <section
-        className="hero-section"
-        id="hero"
-        style={heroBg ? { backgroundImage: heroBg } : undefined}
-      >
+      <section className="hero-section" id="hero">
         <div className="hero-overlay">
           <div className="hero-container" id="hero-container">
             <span className="game-featured">JUEGO DEL DÍA</span>
