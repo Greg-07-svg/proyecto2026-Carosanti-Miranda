@@ -418,10 +418,10 @@ cargarExplorados = (newJuegos = juegos) => {
  */
 
 filtrarJuegos = () => {
-  let searchWord = document.getElementById("search-input").value;
+  let searchWord = document.getElementById("search-input").value.trim();
   let genero = document.getElementById("category-select").value;
   let rating = document.getElementById("rating-range").value;
-  let year = parseInt(document.getElementById("year-input").value);
+  let yearInput = document.getElementById("year-input").value.trim();
   let newJuegos = juegos;
 
   if (searchWord) {
@@ -446,8 +446,9 @@ filtrarJuegos = () => {
     newJuegos = newJuegos.filter((g) => g.rating >= rating);
   }
 
-  if (!(year == "")) {
-    if ((year > 1980) & (year < 2026)) {
+  if (yearInput !== "") {
+    let year = parseInt(yearInput, 10);
+    if (!isNaN(year) && year >= 1980 && year <= 2026) {
       newJuegos = newJuegos.filter((g) => g.released == year);
     } else {
       alert("el rango de anios no es adecuado");
@@ -455,7 +456,7 @@ filtrarJuegos = () => {
     }
   }
 
-  if ((searchWord == "") & (genero == "") & (rating == 0) & (year == "")) {
+  if (searchWord === "" && genero === "" && (rating === "0" || rating === "") && yearInput === "") {
     document.getElementById("error-msg").innerHTML =
       `<p> introduce un termino de busqueda antes de mandar </p> `;
   } else {
@@ -472,7 +473,7 @@ filtrarJuegos = () => {
  */
 aumentarRating = () => {
   document.getElementById("rating-value").innerText =
-    document.getElementById("rating-range").value;
+    document.getElementById("rating-range").value || "0";
 };
 
 /**
@@ -482,10 +483,12 @@ aumentarRating = () => {
 reiniciarBusqueda = () => {
   document.getElementById("search-input").value = "";
   document.getElementById("category-select").value = "";
-  document.getElementById("rating-range").value = "";
+  document.getElementById("rating-range").value = "0";
   document.getElementById("year-input").value = "";
+  document.getElementById("error-msg").innerHTML = "";
 
-  filtrarJuegos();
+  cargarExplorados(juegos);
+  document.getElementById("results-count").textContent = juegos.length;
   aumentarRating();
 };
 
